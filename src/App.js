@@ -1,9 +1,10 @@
 import React from 'react';
+import LearnLoops from './pages/learnByMovement/LearnLoops';
 
 function App() {
   return (
     <div className="App">
-      Hi
+      <LearnLoops />
     </div>
   );
 }
