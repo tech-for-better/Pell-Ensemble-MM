@@ -1,5 +1,5 @@
-import React from 'react';
-import LearnLoops from './pages/learnByMovement/LearnLoops';
+import React from "react";
+import LearnLoops from "./pages/learnByMovement/learnLoops";
 
 function App() {
   return (
