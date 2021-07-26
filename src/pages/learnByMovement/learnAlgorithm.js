@@ -40,10 +40,11 @@ export default function LearnAlgorithm() {
       // console.log(pose.keypoints[9].position);
       const topy = document.getElementById("mcanvas").offsetTop;
       if (
-        pose.keypoints[9].position.y < topy &&
-        topy - 50 < pose.keypoints[9].position.y
+        pose.keypoints[9].position.y < topy + 100 &&
+        topy < pose.keypoints[9].position.y
       ) {
-        document.getElementById("displayArea").innerHTML = "working";
+        console.log("maryam");
+        // document.getElementById("displayArea").innerHTML = "working";
       }
       drawCanvas(pose, video, videoWidth, videoHeight, canvasRef);
     }
@@ -54,7 +55,7 @@ export default function LearnAlgorithm() {
     canvas.current.width = videoWidth;
     canvas.current.height = videoHeight;
 
-    drawKeypoints(pose["keypoints"], 0.6, ctx);
+    drawKeypoints(pose.keypoints, 0.6, ctx);
     drawSkeleton(pose["keypoints"], 0.7, ctx);
   };
 
@@ -71,49 +72,47 @@ export default function LearnAlgorithm() {
   /*********************************************/
   return (
     <div className="App">
-      <header className="App-header">
-        <p id="displayArea"></p>
-        <div>
-          <button id="focusArea" onClick={getPos}>
-            getPos
-          </button>
-        </div>
-        <Webdiv>
-          <div
-            style={{
-              position: "absolute",
-              left: 0,
-              right: 0,
-              width: 50,
-              height: 50,
-              zIndex: 10,
-              backgroundColor: "red",
-            }}
-          ></div>
-          <Webcam
-            ref={webcamRef}
-            style={{
-              position: "absolute",
-              left: 0,
-              right: 0,
-              width: 640,
-              height: 480,
-            }}
-          />
+      <p id="displayArea"></p>
+      <div>
+        <button id="focusArea" onClick={getPos}>
+          getPos
+        </button>
+      </div>
+      <Webdiv>
+        <div
+          style={{
+            position: "absolute",
+            left: 0,
+            right: 0,
+            width: 50,
+            height: 50,
+            zIndex: 10,
+            backgroundColor: "red",
+          }}
+        ></div>
+        <Webcam
+          ref={webcamRef}
+          style={{
+            position: "absolute",
+            left: 0,
+            right: 0,
+            width: 640,
+            height: 480,
+          }}
+        />
 
-          <canvas
-            id="mcanvas"
-            ref={canvasRef}
-            style={{
-              position: "absolute",
-              left: 0,
-              right: 0,
-              width: 640,
-              height: 480,
-            }}
-          />
-        </Webdiv>
-      </header>
+        <canvas
+          id="mcanvas"
+          ref={canvasRef}
+          style={{
+            position: "absolute",
+            left: 0,
+            right: 0,
+            width: 640,
+            height: 480,
+          }}
+        />
+      </Webdiv>
     </div>
   );
 }
