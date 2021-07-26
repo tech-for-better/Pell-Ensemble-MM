@@ -37,8 +37,14 @@ export default function LearnAlgorithm() {
 
       // Make Detections
       const pose = await net.estimateSinglePose(video);
-      console.log(pose);
-
+      // console.log(pose.keypoints[9].position);
+      const topy = document.getElementById("mcanvas").offsetTop;
+      if (
+        pose.keypoints[9].position.y < topy &&
+        topy - 50 < pose.keypoints[9].position.y
+      ) {
+        document.getElementById("displayArea").innerHTML = "working";
+      }
       drawCanvas(pose, video, videoWidth, videoHeight, canvasRef);
     }
   };
@@ -53,48 +59,67 @@ export default function LearnAlgorithm() {
   };
 
   runPosenet();
+  /***********************************************/
 
+  /***********************************************/
+  function getPos() {
+    const x = document.getElementById("mcanvas").offsetLeft;
+    const y = document.getElementById("mcanvas").offsetTop;
+    let cursor = "x " + x + " y " + y;
+    document.getElementById("displayArea").innerHTML = cursor;
+  }
+  /*********************************************/
   return (
     <div className="App">
       <header className="App-header">
+        <p id="displayArea"></p>
+        <div>
+          <button id="focusArea" onClick={getPos}>
+            getPos
+          </button>
+        </div>
         <Webdiv>
+          <div
+            style={{
+              position: "absolute",
+              left: 0,
+              right: 0,
+              width: 50,
+              height: 50,
+              zIndex: 10,
+              backgroundColor: "red",
+            }}
+          ></div>
           <Webcam
             ref={webcamRef}
             style={{
               position: "absolute",
-              marginLeft: "auto",
-              marginRight: "auto",
               left: 0,
               right: 0,
+              width: 640,
+              height: 480,
+            }}
+          />
 
-              textAlign: "center",
-              zindex: 9,
+          <canvas
+            id="mcanvas"
+            ref={canvasRef}
+            style={{
+              position: "absolute",
+              left: 0,
+              right: 0,
               width: 640,
               height: 480,
             }}
           />
         </Webdiv>
-
-        <canvas
-          ref={canvasRef}
-          style={{
-            position: "absolute",
-            marginLeft: "auto",
-            marginRight: "auto",
-            left: 0,
-            right: 0,
-            textAlign: "center",
-            zindex: 9,
-            width: 640,
-            height: 480,
-          }}
-        />
       </header>
     </div>
   );
 }
 
 const Webdiv = styled.div`
+  position: relative;
   transform: scaleX(-1);
   width: 80vw;
   margin: auto;
