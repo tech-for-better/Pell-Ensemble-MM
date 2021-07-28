@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import * as tf from "@tensorflow/tfjs";
 import * as posenet from "@tensorflow-models/posenet";
 import Webcam from "react-webcam";
-import { drawKeypoints, drawSkeleton } from "../../utilities";
+import { drawKeypoints } from "../../utilities";
 import styled from "styled-components";
 
 export default function LearnAlgorithm() {
@@ -24,6 +24,7 @@ export default function LearnAlgorithm() {
     if (
       typeof webcamRef.current !== "undefined" &&
       webcamRef.current !== null &&
+      //The operation is complete.
       webcamRef.current.video.readyState === 4
     ) {
       // Get Video Properties
@@ -39,6 +40,7 @@ export default function LearnAlgorithm() {
       const pose = await net.estimateSinglePose(video);
       // console.log(pose.keypoints[9].position);
       const topy = document.getElementById("mcanvas").offsetTop;
+      // if rightwrist pass from the top of the canvas and 100px below
       if (
         pose.keypoints[9].position.y < topy + 100 &&
         topy < pose.keypoints[9].position.y
@@ -56,11 +58,10 @@ export default function LearnAlgorithm() {
     canvas.current.height = videoHeight;
 
     drawKeypoints(pose.keypoints, 0.6, ctx);
-    drawSkeleton(pose["keypoints"], 0.7, ctx);
+    // drawSkeleton(pose["keypoints"], 0.7, ctx);
   };
 
   runPosenet();
-  /***********************************************/
 
   /***********************************************/
   function getPos() {
