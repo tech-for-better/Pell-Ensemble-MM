@@ -59,7 +59,7 @@ export default function LearnAlgorithm() {
       canvas.current.width = videoWidth;
       canvas.current.height = videoHeight;
 
-      drawKeypoints(pose.keypoints, 0.6, ctx);
+      drawKeypoints([pose.keypoints[9], pose.keypoints[10]], 0.6, ctx);
       // drawSkeleton(pose["keypoints"], 0.7, ctx);
     };
 
