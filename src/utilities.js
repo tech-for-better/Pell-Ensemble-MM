@@ -17,7 +17,7 @@
 import * as posenet from "@tensorflow-models/posenet";
 import * as tf from "@tensorflow/tfjs";
 
-const color = "aqua";
+// const color = "red";
 // const boundingBoxColor = "red";
 // const lineWidth = 2;
 
@@ -80,13 +80,6 @@ export function isMobile() {
 //   return [y, x];
 // }
 
-export function drawPoint(ctx, y, x, r, color) {
-  ctx.beginPath();
-  ctx.arc(x, y, r, 0, 2 * Math.PI);
-  ctx.fillStyle = color;
-  ctx.fill();
-}
-
 /**
  * Draws a line on a canvas, i.e. a joint
  */
@@ -122,6 +115,12 @@ export function drawPoint(ctx, y, x, r, color) {
 /**
  * Draw pose keypoints onto a canvas
  */
+export function drawPoint(ctx, y, x, r, color) {
+  ctx.beginPath();
+  ctx.arc(x, y, r, 0, 2 * Math.PI);
+  ctx.fillStyle = color;
+  ctx.fill();
+}
 export function drawKeypoints(keypoints, minConfidence, ctx, scale = 1) {
   for (let i = 0; i < keypoints.length; i++) {
     const keypoint = keypoints[i];
@@ -131,7 +130,7 @@ export function drawKeypoints(keypoints, minConfidence, ctx, scale = 1) {
     }
 
     const { y, x } = keypoint.position;
-    drawPoint(ctx, y * scale, x * scale, 3, color);
+    drawPoint(ctx, y * scale, x * scale, 20, "red");
   }
 }
 
