@@ -44,13 +44,22 @@ export default function LearnAlgorithm() {
         const topy = document.getElementById("mcanvas").offsetTop;
         // if rightwrist pass from the top of the canvas and 100px below
         if (
-          pose.keypoints[9].position.y < topy + 30 &&
-          topy < pose.keypoints[9].position.y
+          pose.keypoints[10].position.y < topy + 100 &&
+          topy < pose.keypoints[10].position.y
         ) {
-          console.log("maryam");
           document.getElementById("square").style.backgroundColor = "blue";
           // document.getElementById("displayArea").innerHTML = "working";
-        }
+        } else if (
+            pose.keypoints[9].position.y < topy + 100 &&
+            topy < pose.keypoints[9].position.y
+          ) {
+
+            document.getElementById("square1").style.backgroundColor = "blue";
+            // document.getElementById("displayArea").innerHTML = "working";
+          }
+
+        console.log(pose.keypoints[9]);
+
         drawCanvas(pose, video, videoWidth, videoHeight, canvasRef);
       }
     };
@@ -80,6 +89,17 @@ export default function LearnAlgorithm() {
               height: 50,
               zIndex: 10,
               backgroundColor: "red",
+            }}
+          ></div>
+                    <div id="square1"
+            style={{
+              position: "absolute",
+              left: 550,
+              right: 0,
+              width: 50,
+              height: 50,
+              zIndex: 10,
+              backgroundColor: "yellow",
             }}
           ></div>
           <Webcam
