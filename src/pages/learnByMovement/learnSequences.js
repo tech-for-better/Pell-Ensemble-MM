@@ -44,10 +44,11 @@ export default function LearnAlgorithm() {
         const topy = document.getElementById("mcanvas").offsetTop;
         // if rightwrist pass from the top of the canvas and 100px below
         if (
-          pose.keypoints[9].position.y < topy + 100 &&
+          pose.keypoints[9].position.y < topy + 30 &&
           topy < pose.keypoints[9].position.y
         ) {
           console.log("maryam");
+          document.getElementById("square").style.backgroundColor = "blue";
           // document.getElementById("displayArea").innerHTML = "working";
         }
         drawCanvas(pose, video, videoWidth, videoHeight, canvasRef);
@@ -70,7 +71,7 @@ export default function LearnAlgorithm() {
     <div>
       {camera === true ? (
         <Webdiv>
-          <div
+          <div id="square"
             style={{
               position: "absolute",
               left: 0,
@@ -116,7 +117,7 @@ export default function LearnAlgorithm() {
         </Webdiv>
       ) : (
 <Webdiv>
-            <Webcam
+            {/* <Webcam
             style={{
               position: "absolute",
               left: 0,
@@ -124,7 +125,7 @@ export default function LearnAlgorithm() {
               width: 640,
               height: 480,
             }}
-          />
+          /> */}
           <canvas
             id="mcanvas"
             ref={canvasRef}
