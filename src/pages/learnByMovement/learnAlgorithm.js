@@ -4,6 +4,9 @@ import * as posenet from "@tensorflow-models/posenet";
 import Webcam from "react-webcam";
 import { drawKeypoints } from "../../utilities";
 import styled from "styled-components";
+import appsound from "../../audio/app_sounds_note1.mp3";
+
+const audioObj = new Audio(appsound);
 
 export default function LearnAlgorithm() {
   const webcamRef = useRef(null);
@@ -43,11 +46,13 @@ export default function LearnAlgorithm() {
         // console.log(pose.keypoints[9].position);
         const topy = document.getElementById("mcanvas").offsetTop;
         // if rightwrist pass from the top of the canvas and 100px below
+
         if (
           pose.keypoints[9].position.y < topy + 100 &&
           topy < pose.keypoints[9].position.y
         ) {
-          console.log("maryam");
+          setTimeout(() => audioObj.play(), 100);
+          console.log("working");
           // document.getElementById("displayArea").innerHTML = "working";
         }
         drawCanvas(pose, video, videoWidth, videoHeight, canvasRef);
