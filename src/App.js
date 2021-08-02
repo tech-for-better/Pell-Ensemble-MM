@@ -1,8 +1,7 @@
 import React from "react";
 import LearnLoops from "./pages/learnByMovement/learnLoops";
-
+// import ml5 from "ml5";
 import LearnSequences from "./pages/learnByMovement/learnSequences";
-
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function App() {
