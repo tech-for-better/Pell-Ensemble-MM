@@ -1,10 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function Counter() {
+export default function Counter({ count }) {
   return (
     <CountDiv>
-      <h3>Counter:</h3>
+      <p>Counter:</p>
+      <p>{count}</p>
     </CountDiv>
   );
 }

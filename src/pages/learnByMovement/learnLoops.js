@@ -18,6 +18,8 @@ export default function LearnLoops() {
   const canvasRef = useRef(null);
   const webdiv = document.querySelector(".webdiv");
   const [camera, setCamera] = useState(false);
+  const [count, setCount] = useState(0);
+
   let step = 0;
   //  Load posenet
   if (camera === true) {
@@ -52,7 +54,7 @@ export default function LearnLoops() {
         const pose = await net.estimateSinglePose(video);
         // console.log(pose.keypoints[9].position);
         /*************************************** Hands up *********************************************************************/
-        const topy = document.getElementById("mcanvas").offsetTop;
+
         // const audioObj = new Audio(appsound);
         // // if rightwrist pass from the top of the canvas and 100px below
         // if (
@@ -64,17 +66,24 @@ export default function LearnLoops() {
         // }
 
         /***********************************************************************************************************/
+        const topy = document.getElementById("mcanvas").offsetTop;
         const leftx = document.getElementById("mcanvas").offsetLeft;
-        const square = document.querySelector(".square");
+        const square = document.querySelector(".square2");
+        const flag = document.querySelector(".flag");
+        let counter = null;
         if (
-          pose.keypoints[9].position.y < topy + 150 &&
-          pose.keypoints[9].position.x < leftx + 250 &&
-          leftx + 150 < pose.keypoints[9].position.x
+          /*         left hand if on the position*/
+          pose.keypoints[9].position.y < topy + 100 &&
+          pose.keypoints[9].position.x < leftx + 100 &&
+          leftx < pose.keypoints[9].position.x
         ) {
-          // square.style.backgroundColor = "green";
-          square.style.left = "100px";
-          // square.style.transform = "scaleX(1.5)";
+          flag.style.backgroundColor = "green";
+          counter = setTimeout(() => setCount(count + 1), 1000);
+          // square.style.left = "100px";
           console.log("working");
+        } else {
+          clearTimeout(counter);
+          flag.style.backgroundColor = "darkMagenta";
         }
         /***********************************************************************************************************/
 
@@ -95,7 +104,7 @@ export default function LearnLoops() {
   return (
     <Wrapper>
       <div>
-        <Counter />
+        <Counter count={count} />
         <CodeBlocks />
       </div>
       <div>
@@ -122,24 +131,28 @@ export default function LearnLoops() {
                   position: "absolute",
                   right: 0,
                   top: 0,
-                  width: 50,
-                  height: 50,
+                  width: 100,
+                  height: 100,
                   zIndex: 10,
                   backgroundColor: "green",
                 }}
-              ></div>
+              >
+                1
+              </div>
               <div
                 className="square2"
                 style={{
                   position: "absolute",
                   left: 0,
                   top: 0,
-                  width: 50,
-                  height: 50,
+                  width: 100,
+                  height: 100,
                   zIndex: 10,
                   backgroundColor: "green",
                 }}
-              ></div>
+              >
+                2
+              </div>
               <div
                 className="square3"
                 style={{
@@ -152,7 +165,9 @@ export default function LearnLoops() {
                   backgroundColor: "blue",
                   transition: "left 2s",
                 }}
-              ></div>
+              >
+                3
+              </div>
 
               <div
                 className="square4"
@@ -162,11 +177,13 @@ export default function LearnLoops() {
                   top: 0,
                   width: 50,
                   height: 50,
-                  zIndex: 10,
+                  zIndex: 5,
                   backgroundColor: "blue",
                   transition: "left 2s",
                 }}
-              ></div>
+              >
+                4
+              </div>
               <div
                 className="basket"
                 style={{
