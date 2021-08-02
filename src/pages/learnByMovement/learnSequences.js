@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import Countdown from "../../components/Countdown";
 import * as tf from "@tensorflow/tfjs";
 import * as posenet from "@tensorflow-models/posenet";
 import Webcam from "react-webcam";
@@ -80,6 +81,7 @@ export default function LearnAlgorithm() {
     <div>
       {camera === true ? (
         <Webdiv>
+          <Countdown></Countdown>
           <div id="square"
             style={{
               position: "absolute",
@@ -123,7 +125,7 @@ export default function LearnAlgorithm() {
               height: 480,
             }}
           />
-          <button style={{    
+          {/* <button style={{    
         position: "absolute",
         bottom: 0,
         left: 0,
@@ -133,7 +135,7 @@ export default function LearnAlgorithm() {
           }}
         >
           stop
-        </button>
+        </button> */}
         </Webdiv>
       ) : (
 <Webdiv>
