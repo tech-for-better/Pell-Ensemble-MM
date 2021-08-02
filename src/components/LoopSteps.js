@@ -13,9 +13,9 @@ export default function LoopSteps() {
 }
 
 const StepWrapper = styled.div`
-  width: 20vw;
+  width: 5vw;
   height: 50vh;
-  background-color: #f98988;
+  background-color: #f3d250;
   text-align: center;
   padding-top: 1%;
 `;

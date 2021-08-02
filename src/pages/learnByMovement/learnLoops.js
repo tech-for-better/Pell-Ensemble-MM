@@ -86,7 +86,7 @@ export default function LearnLoops() {
           clearTimeout(counter);
           flag.style.backgroundColor = "darkMagenta";
         }
-        if (count === 5) {
+        if (count === 2) {
           step = 2;
           square1.style.display = "none";
           square2.style.display = "none";
@@ -111,12 +111,12 @@ export default function LearnLoops() {
     <Wrapper>
       <div>
         <Counter count={count} />
-        <CodeBlocks />
+        <LoopSteps step={step} />
       </div>
       <div>
         <StartInstructions step={step} />
         <CameraSteps>
-          <LoopSteps />
+          <CodeBlocks step={step} />
           <CamCanWrap>
             <Webdiv className="webdiv">
               <div

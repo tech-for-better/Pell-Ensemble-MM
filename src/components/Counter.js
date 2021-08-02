@@ -11,7 +11,7 @@ export default function Counter({ count }) {
 }
 
 const CountDiv = styled.div`
-  width: 20vw;
+  width: 5vw;
   height: 20vh;
   background-color: #91bbba;
   text-align: center;
