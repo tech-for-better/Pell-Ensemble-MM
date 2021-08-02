@@ -14,9 +14,11 @@ import bin from "../../images/bin.svg";
 export default function LearnAlgorithm() {
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
+  const webdiv = document.querySelector(".webdiv");
   const [camera, setCamera] = useState(false);
   //  Load posenet
   if (camera === true) {
+    webdiv.style.display = "block";
     const runPosenet = async () => {
       const net = await posenet.load({
         inputResolution: { width: 640, height: 480 },
@@ -141,7 +143,7 @@ export default function LearnAlgorithm() {
                 }}
               />
             </Webdiv>
-            <div>
+            <ButtonDiv>
               <button
                 onClick={() => {
                   setCamera(true);
@@ -149,22 +151,13 @@ export default function LearnAlgorithm() {
               >
                 start
               </button>
-            </div>
+            </ButtonDiv>
           </CamCanWrap>
         </CameraSteps>
       </div>
     </Wrapper>
   );
 }
-
-const Webdiv = styled.div`
-  position: relative;
-  width: 640px;
-  height: 480px;
-  // display: none;
-  transform: scaleX(-1);
-`;
-const CamCanWrap = styled.div``;
 
 const Wrapper = styled.div`
   display: flex;
@@ -174,4 +167,22 @@ const CameraSteps = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+`;
+const CamCanWrap = styled.div`
+  position: relative;
+  width: 640px;
+  height: 480px;
+`;
+const Webdiv = styled.div`
+  position: relative;
+  width: 640px;
+  height: 480px;
+  display: none;
+  transform: scaleX(-1);
+`;
+
+const ButtonDiv = styled.div`
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
 `;
