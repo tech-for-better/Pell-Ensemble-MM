@@ -1,6 +1,6 @@
 import React from "react";
 import LearnLoops from "./pages/learnByMovement/learnLoops";
-import LearnAlgorithm from "./pages/learnByMovement/learnAlgorithm";
+
 import LearnSequences from "./pages/learnByMovement/learnSequences";
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
@@ -14,9 +14,6 @@ function App() {
             <Link to="/learnLoops">Learn Loops</Link>
           </li>
           <li>
-            <Link to="/learnAlgorithm">Learn Algorithm</Link>
-          </li>
-          <li>
             <Link to="/learnSequences">Learn Sequences</Link>
           </li>
         </ul>
@@ -26,9 +23,6 @@ function App() {
         <Switch>
           <Route path="/learnLoops">
             <LearnLoops />
-          </Route>
-          <Route path="/learnAlgorithm">
-            <LearnAlgorithm />
           </Route>
           <Route path="/learnSequences">
             <LearnSequences />
