@@ -68,7 +68,8 @@ export default function LearnLoops() {
         /***********************************************************************************************************/
         const topy = document.getElementById("mcanvas").offsetTop;
         const leftx = document.getElementById("mcanvas").offsetLeft;
-        const square = document.querySelector(".square2");
+        const square1 = document.querySelector(".square1");
+        const square2 = document.querySelector(".square2");
         const flag = document.querySelector(".flag");
         let counter = null;
         if (
@@ -84,6 +85,11 @@ export default function LearnLoops() {
         } else {
           clearTimeout(counter);
           flag.style.backgroundColor = "darkMagenta";
+        }
+        if (count === 5) {
+          step = 2;
+          square1.style.display = "none";
+          square2.style.display = "none";
         }
         /***********************************************************************************************************/
 
