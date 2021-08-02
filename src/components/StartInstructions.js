@@ -1,14 +1,23 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function StartInstructions() {
-  return (
-    <InstructionDiv>
-      <h2 className="instructions">
-        Start the camera and Follow the instruction
-      </h2>
-    </InstructionDiv>
-  );
+export default function StartInstructions({ step }) {
+  switch (step) {
+    case 0:
+      return (
+        <InstructionDiv>
+          <p>Step 0 instructions</p>
+        </InstructionDiv>
+      );
+    case 1:
+      return (
+        <InstructionDiv>
+          <p>Step 1 instructions</p>
+        </InstructionDiv>
+      );
+    default:
+      return null;
+  }
 }
 
 const InstructionDiv = styled.div`
