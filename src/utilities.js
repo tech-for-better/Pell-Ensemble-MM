@@ -14,8 +14,8 @@
  * limitations under the License.
  * =============================================================================
  */
-import * as posenet from "@tensorflow-models/posenet";
-import * as tf from "@tensorflow/tfjs";
+// import * as posenet from "@tensorflow-models/posenet";
+// import * as tf from "@tensorflow/tfjs";
 
 // const color = "red";
 // const boundingBoxColor = "red";
