@@ -4,7 +4,9 @@ import styled from "styled-components";
 export default function StartInstructions() {
   return (
     <InstructionDiv>
-      <h2 className="instructions">Follow the movement below</h2>
+      <h2 className="instructions">
+        Start the camera and Follow the instruction
+      </h2>
     </InstructionDiv>
   );
 }
