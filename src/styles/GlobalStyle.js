@@ -17,7 +17,7 @@ const GlobalStyles = createGlobalStyle`
   html{
     font-size: 10px;
     font-family: 'Roboto Mono';
-    background-color: var(--purple);
+    /* background-color: var(--purple); */
   }
   `;
 
