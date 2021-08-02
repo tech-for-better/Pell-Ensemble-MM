@@ -9,6 +9,8 @@ import CodeBlocks from "../../components/CodeBlocks";
 import StartInstructions from "../../components/StartInstructions";
 import LoopSteps from "../../components/LoopSteps";
 import bin from "../../images/bin.svg";
+import unnamed from "../../images/unnamed.svg";
+import { nonEmptyArray } from "check-types";
 // import appsound from "../../audio/app_sounds_note1.mp3";
 
 export default function LearnLoops() {
@@ -72,7 +74,7 @@ export default function LearnLoops() {
           // square.style.backgroundColor = "green";
           square.style.left = "100px";
           // square.style.transform = "scaleX(1.5)";
-          // console.log("working");
+          console.log("working");
         }
         /***********************************************************************************************************/
 
@@ -103,19 +105,79 @@ export default function LearnLoops() {
           <CamCanWrap>
             <Webdiv className="webdiv">
               <div
-                className="square"
+                className="flag"
                 style={{
                   position: "absolute",
                   left: 0,
-                  right: 0,
+                  top: -60,
                   width: 50,
                   height: 50,
                   zIndex: 10,
-                  backgroundColor: "red",
+                  backgroundColor: "darkMagenta",
+                }}
+              ></div>
+              <div
+                className="square1"
+                style={{
+                  position: "absolute",
+                  right: 0,
+                  top: 0,
+                  width: 50,
+                  height: 50,
+                  zIndex: 10,
+                  backgroundColor: "green",
+                }}
+              ></div>
+              <div
+                className="square2"
+                style={{
+                  position: "absolute",
+                  left: 0,
+                  top: 0,
+                  width: 50,
+                  height: 50,
+                  zIndex: 10,
+                  backgroundColor: "green",
+                }}
+              ></div>
+              <div
+                className="square3"
+                style={{
+                  position: "absolute",
+                  left: 0,
+                  top: 0,
+                  width: 50,
+                  height: 50,
+                  zIndex: 5,
+                  backgroundColor: "blue",
                   transition: "left 2s",
                 }}
+              ></div>
+
+              <div
+                className="square4"
+                style={{
+                  position: "absolute",
+                  right: 0,
+                  top: 0,
+                  width: 50,
+                  height: 50,
+                  zIndex: 10,
+                  backgroundColor: "blue",
+                  transition: "left 2s",
+                }}
+              ></div>
+              <div
+                className="basket"
+                style={{
+                  position: "absolute",
+                  right: 320,
+                  top: 0,
+                  display: "none",
+                  zIndex: 10,
+                }}
               >
-                <img src={bin} alt="bin" />
+                <img src={unnamed} alt="basket" />
               </div>
               <Webcam
                 ref={webcamRef}
