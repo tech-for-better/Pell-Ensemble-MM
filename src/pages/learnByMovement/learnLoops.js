@@ -11,12 +11,17 @@ import LoopSteps from "../../components/LoopSteps";
 import bin from "../../images/bin.svg";
 // import appsound from "../../audio/app_sounds_note1.mp3";
 
-export default function LearnAlgorithm() {
+export default function LearnLoops() {
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
+  const webdiv = document.querySelector(".webdiv");
   const [camera, setCamera] = useState(false);
+  let step = 0;
   //  Load posenet
   if (camera === true) {
+    step = 1;
+    /******************************* setting camera, canvas and poseNet */
+    webdiv.style.display = "block";
     const runPosenet = async () => {
       const net = await posenet.load({
         inputResolution: { width: 640, height: 480 },
@@ -27,7 +32,6 @@ export default function LearnAlgorithm() {
         detect(net);
       }, 100);
     };
-
     const detect = async (net) => {
       if (
         typeof webcamRef.current !== "undefined" &&
@@ -39,15 +43,12 @@ export default function LearnAlgorithm() {
         const video = webcamRef.current.video;
         const videoWidth = webcamRef.current.video.videoWidth;
         const videoHeight = webcamRef.current.video.videoHeight;
-
         // Set video width
         webcamRef.current.video.width = videoWidth;
         webcamRef.current.video.height = videoHeight;
-
         // Make Detections
         const pose = await net.estimateSinglePose(video);
         // console.log(pose.keypoints[9].position);
-
         /*************************************** Hands up *********************************************************************/
         const topy = document.getElementById("mcanvas").offsetTop;
         // const audioObj = new Audio(appsound);
@@ -78,7 +79,6 @@ export default function LearnAlgorithm() {
         drawCanvas(pose, video, videoWidth, videoHeight, canvasRef);
       }
     };
-
     const drawCanvas = (pose, video, videoWidth, videoHeight, canvas) => {
       const ctx = canvas.current.getContext("2d");
       canvas.current.width = videoWidth;
@@ -87,7 +87,6 @@ export default function LearnAlgorithm() {
       drawKeypoints([pose.keypoints[9], pose.keypoints[10]], 0.6, ctx);
       // drawSkeleton(pose["keypoints"], 0.7, ctx);
     };
-
     runPosenet();
   }
 
@@ -98,7 +97,7 @@ export default function LearnAlgorithm() {
         <CodeBlocks />
       </div>
       <div>
-        <StartInstructions />
+        <StartInstructions step={step} />
         <CameraSteps>
           <LoopSteps />
           <CamCanWrap>
@@ -141,7 +140,7 @@ export default function LearnAlgorithm() {
                 }}
               />
             </Webdiv>
-            <div>
+            <ButtonDiv>
               <button
                 onClick={() => {
                   setCamera(true);
@@ -149,22 +148,13 @@ export default function LearnAlgorithm() {
               >
                 start
               </button>
-            </div>
+            </ButtonDiv>
           </CamCanWrap>
         </CameraSteps>
       </div>
     </Wrapper>
   );
 }
-
-const Webdiv = styled.div`
-  position: relative;
-  width: 640px;
-  height: 480px;
-  // display: none;
-  transform: scaleX(-1);
-`;
-const CamCanWrap = styled.div``;
 
 const Wrapper = styled.div`
   display: flex;
@@ -174,4 +164,23 @@ const CameraSteps = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+`;
+const CamCanWrap = styled.div`
+  position: relative;
+  width: 640px;
+  height: 480px;
+  background-color: red;
+`;
+const Webdiv = styled.div`
+  position: relative;
+  width: 640px;
+  height: 480px;
+  display: none;
+  transform: scaleX(-1);
+`;
+
+const ButtonDiv = styled.div`
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
 `;
