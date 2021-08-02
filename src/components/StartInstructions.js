@@ -15,6 +15,12 @@ export default function StartInstructions({ step }) {
           <p>Step 1 instructions</p>
         </InstructionDiv>
       );
+    case 2:
+      return (
+        <InstructionDiv>
+          <p>Step 22222222 instructions</p>
+        </InstructionDiv>
+      );
     default:
       return null;
   }

@@ -9,6 +9,8 @@ import CodeBlocks from "../../components/CodeBlocks";
 import StartInstructions from "../../components/StartInstructions";
 import LoopSteps from "../../components/LoopSteps";
 import bin from "../../images/bin.svg";
+import unnamed from "../../images/unnamed.svg";
+import { nonEmptyArray } from "check-types";
 // import appsound from "../../audio/app_sounds_note1.mp3";
 
 export default function LearnLoops() {
@@ -16,6 +18,8 @@ export default function LearnLoops() {
   const canvasRef = useRef(null);
   const webdiv = document.querySelector(".webdiv");
   const [camera, setCamera] = useState(false);
+  const [count, setCount] = useState(0);
+
   let step = 0;
   //  Load posenet
   if (camera === true) {
@@ -50,7 +54,7 @@ export default function LearnLoops() {
         const pose = await net.estimateSinglePose(video);
         // console.log(pose.keypoints[9].position);
         /*************************************** Hands up *********************************************************************/
-        const topy = document.getElementById("mcanvas").offsetTop;
+
         // const audioObj = new Audio(appsound);
         // // if rightwrist pass from the top of the canvas and 100px below
         // if (
@@ -62,17 +66,30 @@ export default function LearnLoops() {
         // }
 
         /***********************************************************************************************************/
+        const topy = document.getElementById("mcanvas").offsetTop;
         const leftx = document.getElementById("mcanvas").offsetLeft;
-        const square = document.querySelector(".square");
+        const square1 = document.querySelector(".square1");
+        const square2 = document.querySelector(".square2");
+        const flag = document.querySelector(".flag");
+        let counter = null;
         if (
-          pose.keypoints[9].position.y < topy + 150 &&
-          pose.keypoints[9].position.x < leftx + 250 &&
-          leftx + 150 < pose.keypoints[9].position.x
+          /*         left hand if on the position*/
+          pose.keypoints[9].position.y < topy + 100 &&
+          pose.keypoints[9].position.x < leftx + 100 &&
+          leftx < pose.keypoints[9].position.x
         ) {
-          // square.style.backgroundColor = "green";
-          square.style.left = "100px";
-          // square.style.transform = "scaleX(1.5)";
-          // console.log("working");
+          flag.style.backgroundColor = "green";
+          counter = setTimeout(() => setCount(count + 1), 1000);
+          // square.style.left = "100px";
+          console.log("working");
+        } else {
+          clearTimeout(counter);
+          flag.style.backgroundColor = "darkMagenta";
+        }
+        if (count === 2) {
+          step = 2;
+          square1.style.display = "none";
+          square2.style.display = "none";
         }
         /***********************************************************************************************************/
 
@@ -93,29 +110,97 @@ export default function LearnLoops() {
   return (
     <Wrapper>
       <div>
-        <Counter />
-        <CodeBlocks />
+        <Counter count={count} />
+        <LoopSteps step={step} />
       </div>
       <div>
         <StartInstructions step={step} />
         <CameraSteps>
-          <LoopSteps />
+          <CodeBlocks step={step} />
           <CamCanWrap>
             <Webdiv className="webdiv">
               <div
-                className="square"
+                className="flag"
                 style={{
                   position: "absolute",
                   left: 0,
-                  right: 0,
+                  top: -60,
                   width: 50,
                   height: 50,
                   zIndex: 10,
-                  backgroundColor: "red",
+                  backgroundColor: "darkMagenta",
+                }}
+              ></div>
+              <div
+                className="square1"
+                style={{
+                  position: "absolute",
+                  right: 0,
+                  top: 0,
+                  width: 100,
+                  height: 100,
+                  zIndex: 10,
+                  backgroundColor: "green",
+                }}
+              >
+                1
+              </div>
+              <div
+                className="square2"
+                style={{
+                  position: "absolute",
+                  left: 0,
+                  top: 0,
+                  width: 100,
+                  height: 100,
+                  zIndex: 10,
+                  backgroundColor: "green",
+                }}
+              >
+                2
+              </div>
+              <div
+                className="square3"
+                style={{
+                  position: "absolute",
+                  left: 0,
+                  top: 0,
+                  width: 50,
+                  height: 50,
+                  zIndex: 5,
+                  backgroundColor: "blue",
                   transition: "left 2s",
                 }}
               >
-                <img src={bin} alt="bin" />
+                3
+              </div>
+
+              <div
+                className="square4"
+                style={{
+                  position: "absolute",
+                  right: 0,
+                  top: 0,
+                  width: 50,
+                  height: 50,
+                  zIndex: 5,
+                  backgroundColor: "blue",
+                  transition: "left 2s",
+                }}
+              >
+                4
+              </div>
+              <div
+                className="basket"
+                style={{
+                  position: "absolute",
+                  right: 320,
+                  top: 0,
+                  display: "none",
+                  zIndex: 10,
+                }}
+              >
+                <img src={unnamed} alt="basket" />
               </div>
               <Webcam
                 ref={webcamRef}

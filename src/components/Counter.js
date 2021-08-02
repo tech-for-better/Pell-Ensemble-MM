@@ -1,16 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function Counter() {
+export default function Counter({ count }) {
   return (
     <CountDiv>
-      <h3>Counter:</h3>
+      <p>Counter:</p>
+      <p>{count}</p>
     </CountDiv>
   );
 }
 
 const CountDiv = styled.div`
-  width: 20vw;
+  width: 5vw;
   height: 20vh;
   background-color: #91bbba;
   text-align: center;
