@@ -8,9 +8,7 @@ import Counter from "../../components/Counter";
 import CodeBlocks from "../../components/CodeBlocks";
 import StartInstructions from "../../components/StartInstructions";
 import LoopSteps from "../../components/LoopSteps";
-import bin from "../../images/bin.svg";
 import unnamed from "../../images/unnamed.svg";
-import { nonEmptyArray } from "check-types";
 // import appsound from "../../audio/app_sounds_note1.mp3";
 
 export default function LearnLoops() {
@@ -79,17 +77,18 @@ export default function LearnLoops() {
           leftx < pose.keypoints[9].position.x
         ) {
           flag.style.backgroundColor = "green";
-          counter = setTimeout(() => setCount(count + 1), 1000);
+          counter = setTimeout(setCount(count + 1), 100);
           // square.style.left = "100px";
           console.log("working");
         } else {
           clearTimeout(counter);
           flag.style.backgroundColor = "darkMagenta";
         }
-        if (count === 2) {
+        if (count === 5) {
           step = 2;
           square1.style.display = "none";
           square2.style.display = "none";
+          console.log(count);
         }
         /***********************************************************************************************************/
 
@@ -141,6 +140,7 @@ export default function LearnLoops() {
                   height: 100,
                   zIndex: 10,
                   backgroundColor: "green",
+                  transition: "left 2s",
                 }}
               >
                 1
@@ -155,6 +155,7 @@ export default function LearnLoops() {
                   height: 100,
                   zIndex: 10,
                   backgroundColor: "green",
+                  transition: "left 2s",
                 }}
               >
                 2
