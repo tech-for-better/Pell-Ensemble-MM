@@ -4,20 +4,18 @@ import styled from 'styled-components';
 const FooterStyle = styled.div`
   padding-top: 10rem;
   .container {
+      /* background-color: blue; */
     display: flex;
     gap: 3rem;
-    margin-top: auto;
-  /* position: relative; */
   left: 0;
   bottom: 0;
+  width: 100%;
+  text-align: center;
   /* margin-bottom: auto; */
-  justify-content: center;
-  align-items: flex-end;
+    justify-content: space-around;
   }
   .copyright {
     text-align: center;
-    padding: 1rem 0;
-    margin-top: 5rem;
     font-size: 1.3rem;
     align-self: flex-end;
   }

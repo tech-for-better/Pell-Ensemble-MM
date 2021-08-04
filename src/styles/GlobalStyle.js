@@ -21,6 +21,9 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'Roboto Mono';
     background-color: var(--blue);
   }
+  body {
+    min-height: 100vh;
+}
   hr {
     border: 0.5px solid var(--black);
     top: 2.5rem;
