@@ -36,7 +36,7 @@ export default function CodeBlocks({ step }) {
 }
 
 const CodeBlockDiv = styled.div`
-  width: 20vw;
+  width: 50vw;
   height: 50vh;
   background-color: #f98988;
   text-align: center;
