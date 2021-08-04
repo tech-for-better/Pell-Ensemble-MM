@@ -126,24 +126,24 @@ export default function NavBar() {
         </li>
         <li>
           <NavLink
-            to="/about"
+            to="/learnLoops"
             onClick={() => setShowNav(!showNav)}
             role="button"
             onKeyDown={() => setShowNav(!showNav)}
             tabIndex={0}
           >
-            About
+            Learn Loops
           </NavLink>
         </li>
         <li>
           <NavLink
-            to="/codeandmove"
+            to="/learnSequences"
             onClick={() => setShowNav(!showNav)}
             role="button"
             onKeyDown={() => setShowNav(!showNav)}
             tabIndex={0}
           >
-            Code & Move
+            Learn Sequences
           </NavLink>
         </li>
       </ul>
