@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import * as tf from "@tensorflow/tfjs";
 import * as posenet from "@tensorflow-models/posenet";
 import Webcam from "react-webcam";
@@ -17,13 +17,11 @@ export default function LearnLoops() {
   const webdiv = document.querySelector(".webdiv");
   const [camera, setCamera] = useState(false);
   const [count, setCount] = useState(0);
+  const [step, setStep] = useState(0);
 
-  let step = 0;
-  //  Load posenet
-  if (camera === true) {
-    step = 1;
-    /******************************* setting camera, canvas and poseNet */
-    webdiv.style.display = "block";
+  useEffect(() => {
+    //  Load posenet
+
     const runPosenet = async () => {
       const net = await posenet.load({
         inputResolution: { width: 640, height: 480 },
@@ -85,7 +83,7 @@ export default function LearnLoops() {
           flag.style.backgroundColor = "darkMagenta";
         }
         if (count === 5) {
-          step = 2;
+          setStep(2);
           square1.style.display = "none";
           square2.style.display = "none";
           console.log(count);
@@ -103,8 +101,13 @@ export default function LearnLoops() {
       drawKeypoints([pose.keypoints[9], pose.keypoints[10]], 0.6, ctx);
       // drawSkeleton(pose["keypoints"], 0.7, ctx);
     };
-    runPosenet();
-  }
+    if (camera === true) {
+      setStep(1);
+      /******************************* setting camera, canvas and poseNet */
+      webdiv.style.display = "block";
+      runPosenet();
+    }
+  }, [webcamRef, camera, count, step]);
 
   return (
     <Wrapper>
