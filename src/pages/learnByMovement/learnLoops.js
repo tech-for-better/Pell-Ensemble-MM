@@ -7,7 +7,8 @@ import styled from "styled-components";
 import CodeBlocks from "../../components/CodeBlocks";
 import StartInstructions from "../../components/StartInstructions";
 // import appsound from "../../audio/app_sounds_note1.mp3";
-import unnamed from "../../images/unnamed.svg";
+import net from "../../images/net.png";
+import ball from "../../images/ball.png";
 
 export default function LearnLoops() {
   const webcamRef = useRef(null);
@@ -54,6 +55,7 @@ export default function LearnLoops() {
         const square1 = document.querySelector(".square1");
         const square2 = document.querySelector(".square2");
         const square3 = document.querySelector(".square3");
+        const square4 = document.querySelector(".square4");
         const flag = document.querySelector(".flag");
         // let audioObj = new Audio(appsound);
 
@@ -89,6 +91,7 @@ export default function LearnLoops() {
             leftx + 100 < pose.keypoints[9].position.x
           ) {
             square3.style.left = "50px";
+            square4.style.right = "50px";
           }
           if (
             square3.style.left === "50px" &&
@@ -97,6 +100,17 @@ export default function LearnLoops() {
             leftx + 150 < pose.keypoints[9].position.x
           ) {
             square3.style.left = "100px";
+            square4.style.right = "100px";
+          }
+
+          if (
+            square3.style.left === "100px" &&
+            pose.keypoints[9].position.y < topy + 100 &&
+            pose.keypoints[9].position.x < leftx + 300 &&
+            leftx + 250 < pose.keypoints[9].position.x
+          ) {
+            square3.style.left = "250px";
+            square4.style.right = "250px";
           }
         }
 
@@ -173,14 +187,18 @@ export default function LearnLoops() {
               position: "absolute",
               left: 0,
               top: 0,
-              width: 50,
-              height: 50,
               zIndex: 5,
-              backgroundColor: "blue",
               transition: "left 2s",
             }}
           >
-            3
+            <img
+              src={ball}
+              alt="ball"
+              style={{
+                width: 80,
+                height: 80,
+              }}
+            />
           </div>
 
           <div
@@ -189,26 +207,37 @@ export default function LearnLoops() {
               position: "absolute",
               right: 0,
               top: 0,
-              width: 50,
-              height: 50,
               zIndex: 5,
-              backgroundColor: "blue",
               transition: "right 2s",
             }}
           >
-            4
+            <img
+              src={ball}
+              alt="ball"
+              style={{
+                width: 80,
+                height: 80,
+              }}
+            />
           </div>
           <div
             className="basket"
             style={{
               position: "absolute",
-              right: 320,
-              top: 0,
-              display: "none",
+
+              right: 240,
+              top: -10,
               zIndex: 10,
             }}
           >
-            <img src={unnamed} alt="basket" />
+            <img
+              src={net}
+              alt="basket"
+              style={{
+                width: 150,
+                height: 140,
+              }}
+            />
           </div>
           <Webcam
             ref={webcamRef}
