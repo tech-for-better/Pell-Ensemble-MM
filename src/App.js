@@ -1,4 +1,5 @@
 import React from "react";
+import NavBar from './components/NavBar';
 import LearnLoops from "./pages/learnByMovement/learnLoops";
 import LearnSequences from "./pages/learnByMovement/learnSequences";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
@@ -6,6 +7,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 function App() {
   return (
     <Router>
+      <NavBar />
       <div>
         <ul>
           <li>
