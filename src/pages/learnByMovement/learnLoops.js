@@ -4,10 +4,10 @@ import * as posenet from "@tensorflow-models/posenet";
 import Webcam from "react-webcam";
 import { drawKeypoints } from "../../utilities";
 import styled from "styled-components";
-import Counter from "../../components/Counter";
+
 import CodeBlocks from "../../components/CodeBlocks";
 import StartInstructions from "../../components/StartInstructions";
-import LoopSteps from "../../components/LoopSteps";
+
 import unnamed from "../../images/unnamed.svg";
 // import appsound from "../../audio/app_sounds_note1.mp3";
 
@@ -16,105 +16,101 @@ export default function LearnLoops() {
   const canvasRef = useRef(null);
   const webdiv = document.querySelector(".webdiv");
   const [camera, setCamera] = useState(false);
-  const [count, setCount] = useState(0);
+  // const [count, setCount] = useState(0);
   const [step, setStep] = useState(0);
 
+  const runPosenet = async () => {
+    const net = await posenet.load({
+      inputResolution: { width: 640, height: 480 },
+      scale: 0.8,
+    });
+    //
+    setInterval(() => {
+      detect(net);
+    }, 1000);
+  };
+  const detect = async (net) => {
+    if (
+      typeof webcamRef.current !== "undefined" &&
+      webcamRef.current !== null &&
+      //The operation is complete.
+      webcamRef.current.video.readyState === 4
+    ) {
+      // Get Video Properties
+      const video = webcamRef.current.video;
+      const videoWidth = webcamRef.current.video.videoWidth;
+      const videoHeight = webcamRef.current.video.videoHeight;
+      // Set video width
+      webcamRef.current.video.width = videoWidth;
+      webcamRef.current.video.height = videoHeight;
+      // Make Detections
+      const pose = await net.estimateSinglePose(video);
+      // console.log(pose.keypoints[9].position);
+      /*************************************** Hands up *********************************************************************/
+
+      // const audioObj = new Audio(appsound);
+      // // if rightwrist pass from the top of the canvas and 100px below
+      // if (
+      //   pose.keypoints[9].position.y < topy + 100 &&
+      //   topy < pose.keypoints[9].position.y
+      // ) {
+      //   setTimeout(() => audioObj.play(), 100);
+      //   console.log("working");
+      // }
+
+      /***********************************************************************************************************/
+      const topy = document.getElementById("mcanvas").offsetTop;
+      const leftx = document.getElementById("mcanvas").offsetLeft;
+      // const square1 = document.querySelector(".square1");
+      // const square2 = document.querySelector(".square2");
+      const flag = document.querySelector(".flag");
+      let counter = null;
+      if (
+        /*         left hand if on the position*/
+        pose.keypoints[9].position.y < topy + 100 &&
+        pose.keypoints[9].position.x < leftx + 100 &&
+        leftx < pose.keypoints[9].position.x
+      ) {
+        flag.style.backgroundColor = "green";
+        // counter = setTimeout(() => setCount(count + 1), 100);
+        // square.style.left = "100px";
+        console.log("working");
+      } else {
+        clearTimeout(counter);
+        flag.style.backgroundColor = "darkMagenta";
+      }
+      // if (count === 5) {
+      //   setStep(2);
+      //   square1.style.display = "none";
+      //   square2.style.display = "none";
+      //   console.log(count);
+      // }
+      /***********************************************************************************************************/
+
+      drawCanvas(pose, video, videoWidth, videoHeight, canvasRef);
+    }
+  };
+  const drawCanvas = (pose, video, videoWidth, videoHeight, canvas) => {
+    const ctx = canvas.current.getContext("2d");
+    canvas.current.width = videoWidth;
+    canvas.current.height = videoHeight;
+
+    drawKeypoints([pose.keypoints[9], pose.keypoints[10]], 0.6, ctx);
+    // drawSkeleton(pose["keypoints"], 0.7, ctx);
+  };
   useEffect(() => {
     //  Load posenet
 
-    const runPosenet = async () => {
-      const net = await posenet.load({
-        inputResolution: { width: 640, height: 480 },
-        scale: 0.8,
-      });
-      //
-      setInterval(() => {
-        detect(net);
-      }, 100);
-    };
-    const detect = async (net) => {
-      if (
-        typeof webcamRef.current !== "undefined" &&
-        webcamRef.current !== null &&
-        //The operation is complete.
-        webcamRef.current.video.readyState === 4
-      ) {
-        // Get Video Properties
-        const video = webcamRef.current.video;
-        const videoWidth = webcamRef.current.video.videoWidth;
-        const videoHeight = webcamRef.current.video.videoHeight;
-        // Set video width
-        webcamRef.current.video.width = videoWidth;
-        webcamRef.current.video.height = videoHeight;
-        // Make Detections
-        const pose = await net.estimateSinglePose(video);
-        // console.log(pose.keypoints[9].position);
-        /*************************************** Hands up *********************************************************************/
-
-        // const audioObj = new Audio(appsound);
-        // // if rightwrist pass from the top of the canvas and 100px below
-        // if (
-        //   pose.keypoints[9].position.y < topy + 100 &&
-        //   topy < pose.keypoints[9].position.y
-        // ) {
-        //   setTimeout(() => audioObj.play(), 100);
-        //   console.log("working");
-        // }
-
-        /***********************************************************************************************************/
-        const topy = document.getElementById("mcanvas").offsetTop;
-        const leftx = document.getElementById("mcanvas").offsetLeft;
-        const square1 = document.querySelector(".square1");
-        const square2 = document.querySelector(".square2");
-        const flag = document.querySelector(".flag");
-        let counter = null;
-        if (
-          /*         left hand if on the position*/
-          pose.keypoints[9].position.y < topy + 100 &&
-          pose.keypoints[9].position.x < leftx + 100 &&
-          leftx < pose.keypoints[9].position.x
-        ) {
-          flag.style.backgroundColor = "green";
-          counter = setTimeout(setCount(count + 1), 100);
-          // square.style.left = "100px";
-          console.log("working");
-        } else {
-          clearTimeout(counter);
-          flag.style.backgroundColor = "darkMagenta";
-        }
-        if (count === 5) {
-          setStep(2);
-          square1.style.display = "none";
-          square2.style.display = "none";
-          console.log(count);
-        }
-        /***********************************************************************************************************/
-
-        drawCanvas(pose, video, videoWidth, videoHeight, canvasRef);
-      }
-    };
-    const drawCanvas = (pose, video, videoWidth, videoHeight, canvas) => {
-      const ctx = canvas.current.getContext("2d");
-      canvas.current.width = videoWidth;
-      canvas.current.height = videoHeight;
-
-      drawKeypoints([pose.keypoints[9], pose.keypoints[10]], 0.6, ctx);
-      // drawSkeleton(pose["keypoints"], 0.7, ctx);
-    };
     if (camera === true) {
       setStep(1);
       /******************************* setting camera, canvas and poseNet */
       webdiv.style.display = "block";
       runPosenet();
     }
-  }, [webcamRef, camera, count, step]);
+  }, [webcamRef, camera, step]);
 
   return (
     <Wrapper>
-      <div>
-        <Counter count={count} />
-        <LoopSteps step={step} />
-      </div>
       <div>
         <StartInstructions step={step} />
         <CameraSteps>
