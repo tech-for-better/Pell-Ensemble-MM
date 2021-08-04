@@ -6,7 +6,7 @@ import { drawKeypoints } from "../../utilities";
 import styled from "styled-components";
 import CodeBlocks from "../../components/CodeBlocks";
 import StartInstructions from "../../components/StartInstructions";
-import appsound from "../../audio/app_sounds_note1.mp3";
+// import appsound from "../../audio/app_sounds_note1.mp3";
 import unnamed from "../../images/unnamed.svg";
 
 export default function LearnLoops() {
@@ -53,26 +53,51 @@ export default function LearnLoops() {
         const leftx = document.getElementById("mcanvas").offsetLeft;
         const square1 = document.querySelector(".square1");
         const square2 = document.querySelector(".square2");
+        const square3 = document.querySelector(".square3");
         const flag = document.querySelector(".flag");
-        const audioObj = new Audio(appsound);
+        // let audioObj = new Audio(appsound);
 
         if (
-          step === 1 &&
           /*         left hand if on the position*/
           pose.keypoints[9].position.y < topy + 100 &&
           pose.keypoints[9].position.x < leftx + 100 &&
           leftx < pose.keypoints[9].position.x
         ) {
           flag.style.backgroundColor = "green";
-
-          audioObj.play();
-          square1.style.display = "none";
-          square2.style.display = "none";
+          // audioObj.play();
+          square1.style.opacity = 0;
+          square2.style.opacity = 0;
           setStep(2);
-
           // square.style.left = "100px"
         } else {
           flag.style.backgroundColor = "darkMagenta";
+        }
+        if (step === 2) {
+          if (
+            /*         left hand if on the position*/
+            pose.keypoints[9].position.y < topy + 100 &&
+            pose.keypoints[9].position.x < leftx + 100 &&
+            leftx < pose.keypoints[9].position.x
+          ) {
+            flag.style.backgroundColor = "green";
+          } else {
+            flag.style.backgroundColor = "darkMagenta";
+          }
+          if (
+            pose.keypoints[9].position.y < topy + 100 &&
+            pose.keypoints[9].position.x < leftx + 150 &&
+            leftx + 100 < pose.keypoints[9].position.x
+          ) {
+            square3.style.left = "50px";
+          }
+          if (
+            square3.style.left === "50px" &&
+            pose.keypoints[9].position.y < topy + 100 &&
+            pose.keypoints[9].position.x < leftx + 200 &&
+            leftx + 150 < pose.keypoints[9].position.x
+          ) {
+            square3.style.left = "100px";
+          }
         }
 
         /***********************************************************************************************************/
@@ -122,7 +147,7 @@ export default function LearnLoops() {
               height: 100,
               zIndex: 10,
               backgroundColor: "green",
-              transition: "left 2s",
+              transition: "opacity 2s",
             }}
           >
             1
@@ -137,7 +162,7 @@ export default function LearnLoops() {
               height: 100,
               zIndex: 10,
               backgroundColor: "green",
-              transition: "left 2s",
+              transition: "opacity 2s",
             }}
           >
             2
@@ -168,7 +193,7 @@ export default function LearnLoops() {
               height: 50,
               zIndex: 5,
               backgroundColor: "blue",
-              transition: "left 2s",
+              transition: "right 2s",
             }}
           >
             4
