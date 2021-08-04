@@ -7,6 +7,8 @@ const GlobalStyles = createGlobalStyle`
   box-sizing: border-box;
 }
 :root {
+    --yellow: #ECE0B0;
+    --blue: #CADDDD;
     --purple: #6A4EE0;
     --black: #252525;
     --white: #fff;
@@ -17,7 +19,12 @@ const GlobalStyles = createGlobalStyle`
   html{
     font-size: 10px;
     font-family: 'Roboto Mono';
-    /* background-color: var(--purple); */
+    background-color: var(--blue);
+  }
+  hr {
+    border: 0.5px solid var(--black);
+    top: 2.5rem;
+    width: 100%;
   }
   `;
 
