@@ -22,12 +22,14 @@ const NavStyles = styled.nav`
       &:hover {
       }
     }
+    li a {text-decoration: none}
     a {
       display: inline-block;
       font-family: 'RobotoMono Regular';
       padding: 1rem 2rem;
       font-size: 2rem;
       outline: none;
+      
     }
     .active {
       color: var(--white);
