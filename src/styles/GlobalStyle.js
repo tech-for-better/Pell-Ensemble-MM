@@ -26,6 +26,11 @@ const GlobalStyles = createGlobalStyle`
     top: 2.5rem;
     width: 100%;
   }
+  .container {
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+  }
   `;
 
   export default GlobalStyles;
