@@ -10,7 +10,7 @@ const FooterStyle = styled.div`
     width: 100%;
     text-align: center;
     margin-bottom: auto;
-    position: absolute;
+    position: sticky;
     justify-content: center;
   }
   .copyright {

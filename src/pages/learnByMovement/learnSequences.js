@@ -125,8 +125,8 @@ export default function LearnAlgorithm() {
               height: 480,
             }}
           />
-          {/* <button style={{    
-        position: "absolute",
+          <button style={{    
+        position: "relative",
         bottom: 0,
         left: 0,
 }}
@@ -135,11 +135,11 @@ export default function LearnAlgorithm() {
           }}
         >
           stop
-        </button> */}
+        </button>
         </Webdiv>
       ) : (
 <Webdiv>
-            {/* <Webcam
+            <Webcam
             style={{
               position: "absolute",
               left: 0,
@@ -147,7 +147,7 @@ export default function LearnAlgorithm() {
               width: 640,
               height: 480,
             }}
-          /> */}
+          />
           <canvas
             id="mcanvas"
             ref={canvasRef}
@@ -158,9 +158,10 @@ export default function LearnAlgorithm() {
               width: 640,
               height: 480,
             }}
-          />        
+          />
+          <div className="button-div">       
           <button style={{    
-        position: "absolute",
+        position: "relative",
         bottom: 0,
         left: 0,
 }}
@@ -170,15 +171,72 @@ export default function LearnAlgorithm() {
         >
           start
         </button>
+        </div>       
+        <div className="instructions">
+          <div>
+        <h2>What is an algorithm?</h2>
+        <p>An algorithm refers to a set of step-by-step instructions for performing a task or solving a problem.
+        In this activity, you, the ‘programmer’, will need to follow a set of instructions to complete this activity. </p>
+        </div>
+          <div>
+        <h2>What is a Sequence?</h2>
+          <p>In order to complete this challenge, you, the ‘programmer’ will need to touch the boxes on screen to activate them and complete the sequence. 
+
+            If you don’t, there will be a bug in the code and the timer will run out…</p>
+            </div>
+      </div>
         </Webdiv>
       )}
     </div>
   );
 }
 
-const Webdiv = styled.div`
+const Webdiv = styled.div`{
   position: relative;
+  overflow: hidden;
   /* transform: scaleX(-1); */
   width: 80vw;
-  margin: auto;
+  margin: 0;
+  height: 100vh;
+  top: 200px;
+  left: 1%;
+  .instructions {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--yellow);
+    float: right;
+    position: relative;
+    text-align: center;
+    max-width: 40%;
+    border-radius: 10%;
+    min-height: 55vh;
+    max-height: 100vh;
+    h2 {
+      font-size: 2.2rem;
+      bottom: 1.75rem;
+    }
+    p { font-size: 1.4rem;
+      line-height: 1.75rem;
+    }
+    .button-div{
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+}
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .instructions {
+    background-color: var(--yellow);
+    float: bottom;
+    position: relative;
+    right: 1%;
+    text-align: center;
+    max-width: 35%;
+    border-radius: 10%;
+}
+}
+}
 `;

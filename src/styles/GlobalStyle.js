@@ -20,9 +20,12 @@ const GlobalStyles = createGlobalStyle`
     font-size: 10px;
     font-family: 'Roboto Mono';
     background-color: var(--blue);
+    overflow-y: scroll;
+    min-height: 100%;
   }
   body {
     min-height: 100vh;
+    padding-bottom: 20px;
 }
   hr {
     border: 0.5px solid var(--black);
