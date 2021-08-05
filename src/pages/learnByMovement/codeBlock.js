@@ -9,6 +9,7 @@ import StartInstructions from "../../components/StartInstructions";
 // import appsound from "../../audio/app_sounds_note1.mp3";
 import net from "../../images/net.png";
 import ball from "../../images/ball.png";
+import locked from "../../images/locked.png";
 
 export default function CodeBlock() {
   const webcamRef = useRef(null);
@@ -140,14 +141,18 @@ export default function CodeBlock() {
               position: "absolute",
               right: 0,
               top: 0,
-              width: 100,
-              height: 100,
               zIndex: 10,
-              backgroundColor: "green",
               transition: "opacity 2s",
             }}
           >
-            1
+            <img
+              src={locked}
+              alt="lock"
+              style={{
+                width: 90,
+                height: 90,
+              }}
+            />
           </div>
           <div
             className="square2"
@@ -155,14 +160,18 @@ export default function CodeBlock() {
               position: "absolute",
               left: 0,
               top: 0,
-              width: 100,
-              height: 100,
               zIndex: 10,
-              backgroundColor: "green",
               transition: "opacity 2s",
             }}
           >
-            2
+            <img
+              src={locked}
+              alt="lock"
+              style={{
+                width: 90,
+                height: 90,
+              }}
+            />
           </div>
           <div
             className="square3"
@@ -179,8 +188,8 @@ export default function CodeBlock() {
               src={ball}
               alt="ball"
               style={{
-                width: 80,
-                height: 80,
+                width: 90,
+                height: 90,
               }}
             />
           </div>
@@ -199,8 +208,8 @@ export default function CodeBlock() {
               src={ball}
               alt="ball"
               style={{
-                width: 80,
-                height: 80,
+                width: 90,
+                height: 90,
               }}
             />
           </div>
@@ -245,15 +254,12 @@ export default function CodeBlock() {
             }}
           />
         </Webdiv>
-        <ButtonDiv>
-          <button
-            onClick={() => {
-              // setCamera(true);
-              setStep(1);
-            }}
-          >
-            start
-          </button>
+        <ButtonDiv
+          onClick={() => {
+            setStep(1);
+          }}
+        >
+          start
         </ButtonDiv>
       </CamCanWrap>
     </Wrapper>
@@ -287,14 +293,21 @@ const Webdiv = styled.div`
   width: 680px;
   height: 520px;
   transform: scaleX(-1);
-  border-color: red;
+  border-color: #4b0082;
   border-style: double;
   border-width: 20px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 `;
 
 const ButtonDiv = styled.div`
+  font-size: 3rem;
+  border-radius: 10px;
+  font-weight: bold;
   position: absolute;
-  bottom: 10px;
-  left: 50%;
+  padding: 1.5rem 2.5rem;
+  bottom: 40px;
+  left: 40%;
+  cursor: pointer;
+  color: white;
+  background-color: #4b0082;
 `;

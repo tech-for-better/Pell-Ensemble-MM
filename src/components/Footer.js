@@ -39,8 +39,10 @@ const FooterStyle = styled.div`
 export default function Footer() {
   return (
     <FooterStyle className="copyright">
-      <div className="footer-container">
-        © 2021 - Pell Ensemble | Designed via Tech for Better
+      <div className="copyright">
+        <div className="footer-container">
+          © 2021 - Pell Ensemble | Designed via Tech for Better
+        </div>
       </div>
     </FooterStyle>
   );
