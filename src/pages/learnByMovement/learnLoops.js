@@ -106,11 +106,11 @@ export default function LearnLoops() {
           if (
             square3.style.left === "100px" &&
             pose.keypoints[9].position.y < topy + 100 &&
-            pose.keypoints[9].position.x < leftx + 300 &&
-            leftx + 250 < pose.keypoints[9].position.x
+            pose.keypoints[9].position.x < leftx + 260 &&
+            leftx + 200 < pose.keypoints[9].position.x
           ) {
-            square3.style.left = "250px";
-            square4.style.right = "250px";
+            square3.style.left = "240px";
+            square4.style.right = "240px";
           }
         }
 
@@ -187,6 +187,7 @@ export default function LearnLoops() {
               position: "absolute",
               left: 0,
               top: 0,
+              backgroundColor: "red",
               zIndex: 5,
               transition: "left 2s",
             }}
@@ -208,6 +209,7 @@ export default function LearnLoops() {
               right: 0,
               top: 0,
               zIndex: 5,
+              backgroundColor: "red",
               transition: "right 2s",
             }}
           >
