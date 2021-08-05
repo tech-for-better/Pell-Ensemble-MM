@@ -3,16 +3,16 @@ import styled from 'styled-components';
 
 const FooterStyle = styled.div`
   padding-top: 10rem;
-  .container {
-      /* background-color: blue; */
-    display: flex;
-    gap: 3rem;
+  .footer-container {
+display: flex;
+gap: 3rem;
   left: 0;
   bottom: 0;
   width: 100%;
   text-align: center;
-  /* margin-bottom: auto; */
-    justify-content: space-around;
+  margin-bottom: auto;
+  position: absolute;
+    justify-content: center;
   }
   .copyright {
     text-align: center;
@@ -40,14 +40,8 @@ const FooterStyle = styled.div`
 export default function Footer() {
   return (
     <FooterStyle>
-      <div className="container">
-        <div className="footer__col1">
-        </div>
-        <div className="footer__col2">
-        </div>
-      </div>
       <div className="copyright">
-        <div className="container">
+        <div className="footer-container">
             © 2021 - Pell Ensemble | Designed via Tech for Better
             <a target="_blank" rel="noreferrer" href="http://pellensemble.com">
               Pell Ensemble
