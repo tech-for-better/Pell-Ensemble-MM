@@ -50,4 +50,9 @@ const InstructionDiv = styled.div`
   border-radius: 10px;
   background-color: #cad9de;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  p {
+    padding: 2.5rem;
+    font-family: "Crimson Pro", serif;
+    font-family: "Old Standard TT", serif;
+  }
 `;
