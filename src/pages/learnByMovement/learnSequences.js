@@ -173,18 +173,17 @@ export default function LearnAlgorithm() {
         <div className="instructions">
         <h2>What is an algorithm?</h2>
         <p>An algorithm refers to a set of step-by-step instructions for performing a task or solving a problem. 
-          <br />
+
           In this activity, you, the ‘programmer’, will need to follow a set of instructions to complete this activity.</p>
-        <br />
+
         <h2>What is a Sequence?</h2>
           <p>In order to complete this challenge, you, the ‘programmer’ will need to touch the boxes on screen to activate them and complete the sequence. 
-            <br />
-            If you don’t, there will be a bug in the code, the game will hit an 'infinite loop', and will never stop…</p>
+
+            If you don’t, there will be a bug in the code and the timer will run out…</p>
       </div>
         </Webdiv>
       )}
     </div>
-
   );
 }
 
@@ -194,15 +193,35 @@ const Webdiv = styled.div`{
   width: 80vw;
   margin: auto;
   height: 100vh;
-  top: 150px;
+  top: 250px;
+  left: 1%;
   .instructions {
     background-color: var(--yellow);
     float: right;
     position: relative;
-    left: 50px;;
+    right: 1%;
     text-align: center;
     max-width: 35%;
-    border-radius: 35%;
+    border-radius: 10%;
+    min-height: 35vh;
+    max-height: 90vh;
+    h2 {
+      font-size: 2rem;
+      bottom: 0.5rem;
+    }
+    p { font-size: 1rem;
+  
+    }
   }
+  @media only screen and (max-width: 768px) {
+    .instructions {
+    background-color: var(--yellow);
+    float: bottom;
+    position: relative;
+    right: 1%;
+    text-align: center;
+    max-width: 35%;
+    border-radius: 10%;
+}
 }
 `;
