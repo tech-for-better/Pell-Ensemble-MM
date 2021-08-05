@@ -1,17 +1,16 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const FooterStyle = styled.div`
-  padding-top: 10rem;
   .footer-container {
-display: flex;
-gap: 3rem;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-  margin-bottom: auto;
-  position: absolute;
+    display: flex;
+    gap: 3rem;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    margin-bottom: auto;
+    position: absolute;
     justify-content: center;
   }
   .copyright {
@@ -42,10 +41,10 @@ export default function Footer() {
     <FooterStyle>
       <div className="copyright">
         <div className="footer-container">
-            © 2021 - Pell Ensemble | Designed via Tech for Better
-            <a target="_blank" rel="noreferrer" href="http://pellensemble.com">
-              Pell Ensemble
-            </a>
+          © 2021 - Pell Ensemble | Designed via Tech for Better
+          <a target="_blank" rel="noreferrer" href="http://pellensemble.com">
+            Pell Ensemble
+          </a>
         </div>
       </div>
     </FooterStyle>
