@@ -125,7 +125,7 @@ export default function LearnAlgorithm() {
               height: 480,
             }}
           />
-          {/* <button style={{    
+          <button style={{    
         position: "absolute",
         bottom: 0,
         left: 0,
@@ -135,11 +135,11 @@ export default function LearnAlgorithm() {
           }}
         >
           stop
-        </button> */}
+        </button>
         </Webdiv>
       ) : (
 <Webdiv>
-            {/* <Webcam
+            <Webcam
             style={{
               position: "absolute",
               left: 0,
@@ -147,7 +147,7 @@ export default function LearnAlgorithm() {
               width: 640,
               height: 480,
             }}
-          /> */}
+          />
           <canvas
             id="mcanvas"
             ref={canvasRef}
@@ -176,9 +176,12 @@ export default function LearnAlgorithm() {
   );
 }
 
-const Webdiv = styled.div`
+const Webdiv = styled.div`{
   position: relative;
   /* transform: scaleX(-1); */
   width: 80vw;
   margin: auto;
+  height: 100vh;
+  top: 150px;
+}
 `;

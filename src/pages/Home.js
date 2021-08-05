@@ -3,12 +3,12 @@ import styled from "styled-components";
 import main_image from "../assets/images/main_image.png"
 
 const HomeStyles = styled.div`{
-h2 {
-    font-size: 3rem;
+h1 {
+    font-size: 3.7rem;
     margin-bottom: 0.5rem;
 }
 p {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
 }
 .container1 {
 margin-top: 50px;
@@ -33,7 +33,7 @@ margin-left: 4%
     .container1 {
 display: inline-block;
     }
-h2 {
+h1 {
     text-align: center;
     font-size: 1.9rem;
 }
@@ -51,7 +51,7 @@ export default function Home() {
         <HomeStyles>
             <div className="container1">
             <div>
-                <h2>Move and Code</h2>
+                <h1>Move and Code</h1>
                 <p>Learn computer programming fundamentals through movement.
 <br />
 Explore learning about block code and computer programing 
