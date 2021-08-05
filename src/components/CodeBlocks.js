@@ -6,16 +6,16 @@ export default function CodeBlocks({ step }) {
     case 0:
       return (
         <CodeBlockDiv>
-          <p>hh</p>
+          <p>Code blocks will appear here</p>
         </CodeBlockDiv>
       );
     case 1:
       return (
         <CodeBlockDiv>
-          <p>till the counter reaches to 5</p>
-          <p>keep hands on the top corners </p>
-          <p>if (counter reaches to 5)</p>
-          <p>the the balls will be revealed</p>
+          <p>Balls' state = locked</p>
+          <p>Raising hands</p>
+          <p>wait for 5 seconds</p>
+          <p>Balls' state = unlocked</p>
         </CodeBlockDiv>
       );
     case 2:
@@ -36,16 +36,13 @@ export default function CodeBlocks({ step }) {
 }
 
 const CodeBlockDiv = styled.div`
-  width: 45vw;
-  height: 45vh;
+  font-size: 2rem;
+  width: 48vw;
+  height: 40vh;
   text-align: center;
   padding-top: 1%;
   border-radius: 10px;
   background-color: #caded1;
-  opacity: 1;
-  background-image: radial-gradient(#008ac5 0.4px, transparent 0.4px),
-    radial-gradient(#008ac5 0.4px, #caded1 0.4px);
-  background-size: 16px 16px;
-  background-position: 0 0, 8px 8px;
+
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 `;
