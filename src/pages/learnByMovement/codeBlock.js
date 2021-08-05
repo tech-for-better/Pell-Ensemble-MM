@@ -254,15 +254,12 @@ export default function CodeBlock() {
             }}
           />
         </Webdiv>
-        <ButtonDiv>
-          <button
-            onClick={() => {
-              // setCamera(true);
-              setStep(1);
-            }}
-          >
-            start
-          </button>
+        <ButtonDiv
+          onClick={() => {
+            setStep(1);
+          }}
+        >
+          start
         </ButtonDiv>
       </CamCanWrap>
     </Wrapper>
@@ -296,14 +293,20 @@ const Webdiv = styled.div`
   width: 680px;
   height: 520px;
   transform: scaleX(-1);
-  border-color: red;
+  border-color: #c71585;
   border-style: double;
   border-width: 20px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 `;
 
 const ButtonDiv = styled.div`
+  background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
+  font-size: 2rem;
+  border-radius: 10px;
+  font-weight: bold;
   position: absolute;
-  bottom: 10px;
-  left: 50%;
+  padding: 2.5rem 4rem;
+
+  bottom: 40px;
+  left: 40%;
 `;
