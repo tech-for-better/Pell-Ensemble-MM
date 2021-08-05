@@ -9,6 +9,7 @@ import StartInstructions from "../../components/StartInstructions";
 // import appsound from "../../audio/app_sounds_note1.mp3";
 import net from "../../images/net.png";
 import ball from "../../images/ball.png";
+import locked from "../../images/locked.png";
 
 export default function CodeBlock() {
   const webcamRef = useRef(null);
@@ -140,14 +141,18 @@ export default function CodeBlock() {
               position: "absolute",
               right: 0,
               top: 0,
-              width: 100,
-              height: 100,
               zIndex: 10,
-              backgroundColor: "green",
               transition: "opacity 2s",
             }}
           >
-            1
+            <img
+              src={locked}
+              alt="lock"
+              style={{
+                width: 90,
+                height: 90,
+              }}
+            />
           </div>
           <div
             className="square2"
@@ -155,14 +160,18 @@ export default function CodeBlock() {
               position: "absolute",
               left: 0,
               top: 0,
-              width: 100,
-              height: 100,
               zIndex: 10,
-              backgroundColor: "green",
               transition: "opacity 2s",
             }}
           >
-            2
+            <img
+              src={locked}
+              alt="lock"
+              style={{
+                width: 90,
+                height: 90,
+              }}
+            />
           </div>
           <div
             className="square3"
@@ -179,8 +188,8 @@ export default function CodeBlock() {
               src={ball}
               alt="ball"
               style={{
-                width: 80,
-                height: 80,
+                width: 90,
+                height: 90,
               }}
             />
           </div>
@@ -199,8 +208,8 @@ export default function CodeBlock() {
               src={ball}
               alt="ball"
               style={{
-                width: 80,
-                height: 80,
+                width: 90,
+                height: 90,
               }}
             />
           </div>
