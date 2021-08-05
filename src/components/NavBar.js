@@ -31,6 +31,7 @@ const NavStyles = styled.nav`
       padding: 1rem 2rem;
       font-size: 2rem;
       outline: none;
+      text-decoration: none;
     }
     .active {
       color: var(--white);
@@ -93,6 +94,9 @@ export default function NavBar() {
   const [showNav, setShowNav] = useState(false);
   return (
     <NavStyles>
+      <a target="_blank" rel="noreferrer" href="http://pellensemble.com">
+        Pell Ensemble
+      </a>
       <div
         className="mobile-menu-icon"
         onClick={() => setShowNav(!showNav)}
