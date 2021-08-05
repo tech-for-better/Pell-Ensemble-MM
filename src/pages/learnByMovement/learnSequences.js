@@ -158,7 +158,8 @@ export default function LearnAlgorithm() {
               width: 640,
               height: 480,
             }}
-          />        
+          />
+          <div className="button-div">       
           <button style={{    
         position: "relative",
         bottom: 0,
@@ -170,6 +171,7 @@ export default function LearnAlgorithm() {
         >
           start
         </button>
+        </div>       
         <div className="instructions">
           <div>
         <h2>What is an algorithm?</h2>
@@ -217,9 +219,14 @@ const Webdiv = styled.div`{
     }
     p { font-size: 1.4rem;
       line-height: 1.75rem;
-  
     }
+    .button-div{
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+}
   }
+  
   @media only screen and (max-width: 768px) {
     .instructions {
     background-color: var(--yellow);
@@ -229,6 +236,7 @@ const Webdiv = styled.div`{
     text-align: center;
     max-width: 35%;
     border-radius: 10%;
+}
 }
 }
 `;
