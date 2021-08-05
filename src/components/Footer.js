@@ -2,18 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 
 const FooterStyle = styled.div`
-  padding-top: 25rem;
+  /* padding-top: 25rem; */
   .footer-container {
-display: flex;
-gap: 3rem;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-  margin-bottom: -19px;
-  position: sticky;
-justify-content: center;  
-overflow: hidden;
+    display: flex;
+    gap: 3rem;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    margin-bottom: auto;
+    position: sticky;
+    justify-content: center;
   }
   .copyright {
     text-align: center;
