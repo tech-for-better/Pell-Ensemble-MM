@@ -6,28 +6,36 @@ export default function CodeBlocks({ step }) {
     case 0:
       return (
         <CodeBlockDiv>
-          <p>hh</p>
+          <p>Code blocks will appear here</p>
         </CodeBlockDiv>
       );
     case 1:
       return (
         <CodeBlockDiv>
-          <p>till the counter reaches to 5</p>
-          <p>keep hands on the top corners </p>
-          <p>if (counter reaches to 5)</p>
-          <p>the the balls will be revealed</p>
+          <p>Balls' state = locked</p>
+          <p>Raising hands</p>
+          <p>wait for 5 seconds</p>
+          <p>Balls' state = unlocked</p>
         </CodeBlockDiv>
       );
     case 2:
       return (
         <CodeBlockDiv>
-          <p>Step</p>
+          <p>Balls' position = corner</p>
+          <p>Dragging balls</p>
+          <p>Balls' position = corner</p>
+          <p>Balls' position = in the middle</p>
         </CodeBlockDiv>
       );
     case 3:
       return (
         <CodeBlockDiv>
-          <p>St</p>
+          <p>Balls' position = corner</p>
+          <p>Balls' state = locked</p>
+          <p>Raising hands</p>
+          <p>Balls' state = unlocked</p>
+          <p>Dragging balls</p>
+          <p>Balls' position = in the middle</p>
         </CodeBlockDiv>
       );
     default:
@@ -36,9 +44,13 @@ export default function CodeBlocks({ step }) {
 }
 
 const CodeBlockDiv = styled.div`
-  width: 50vw;
-  height: 50vh;
-  background-color: #f98988;
+  font-size: 2rem;
+  width: 48vw;
+  height: 40vh;
   text-align: center;
   padding-top: 1%;
+  border-radius: 10px;
+  background-color: #caded1;
+
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 `;
