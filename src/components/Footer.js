@@ -11,7 +11,7 @@ gap: 3rem;
   width: 100%;
   text-align: center;
   margin-bottom: auto;
-  position: absolute;
+  position: sticky;
     justify-content: center;
   }
   .copyright {

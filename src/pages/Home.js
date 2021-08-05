@@ -7,8 +7,8 @@ const HomeStyles = styled.div`{
 display: flex;
 justify-content: center;
 align-items: center;
-top: 50%;
-bottom: 50%;
+height: 110vh;
+position: relative;
 }
 .circle {
 width: 479px;
@@ -37,7 +37,7 @@ export default function Home() {
 <br />
 Explore learning about block code and computer programing 
 <br />
-by simply switching on your webcam and completing the movements on screen.</p>
+by switching on your webcam and completing the movements on screen.</p>
             </div>
             <img className="circle" src={main_image}>
             </img>
