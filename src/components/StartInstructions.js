@@ -28,8 +28,8 @@ export default function StartInstructions({ step }) {
 
 const InstructionDiv = styled.div`
   font-size: 1.5rem;
-  width: 60vw;
-  height: 20vh;
+  width: 50vw;
+  height: 40vh;
   background-color: #90ccf4;
   text-align: center;
   padding-top: 1%;
