@@ -28,9 +28,16 @@ export default function StartInstructions({ step }) {
 
 const InstructionDiv = styled.div`
   font-size: 1.5rem;
-  width: 50vw;
+  width: 45vw;
   height: 40vh;
-  background-color: #90ccf4;
   text-align: center;
   padding-top: 1%;
+  border-radius: 10px;
+  background-color: #cad9de;
+  opacity: 1;
+  background-image: radial-gradient(#008ac5 0.4px, transparent 0.4px),
+    radial-gradient(#008ac5 0.4px, #cad9de 0.4px);
+  background-size: 16px 16px;
+  background-position: 0 0, 8px 8px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 `;

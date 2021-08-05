@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import styled from 'styled-components';
-import { MdClose, MdMenu } from 'react-icons/md';
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
+import styled from "styled-components";
+import { MdClose, MdMenu } from "react-icons/md";
 
 const NavStyles = styled.nav`
   position: fixed;
@@ -9,7 +9,6 @@ const NavStyles = styled.nav`
   top: 0;
   left: 0;
   width: 100%;
-  padding: 1rem 0;
   ul {
     max-width: 1200px;
     margin: 0 auto;
@@ -22,14 +21,15 @@ const NavStyles = styled.nav`
       &:hover {
       }
     }
-    li a {text-decoration: none}
+    li a {
+      text-decoration: none;
+    }
     a {
       display: inline-block;
-      font-family: 'RobotoMono Regular';
+      font-family: "RobotoMono Regular";
       padding: 1rem 2rem;
       font-size: 2rem;
       outline: none;
-      
     }
     .active {
       color: var(--white);
@@ -102,7 +102,7 @@ export default function NavBar() {
         <MdMenu />
       </div>
 
-      <ul className={!showNav ? 'navItems hide-item' : 'navItems'}>
+      <ul className={!showNav ? "navItems hide-item" : "navItems"}>
         <div
           className="closeNavIcon"
           onClick={() => setShowNav(!showNav)}
