@@ -126,7 +126,7 @@ export default function LearnAlgorithm() {
             }}
           />
           <button style={{    
-        position: "absolute",
+        position: "relative",
         bottom: 0,
         left: 0,
 }}
@@ -160,7 +160,7 @@ export default function LearnAlgorithm() {
             }}
           />        
           <button style={{    
-        position: "absolute",
+        position: "relative",
         bottom: 0,
         left: 0,
 }}
@@ -170,9 +170,21 @@ export default function LearnAlgorithm() {
         >
           start
         </button>
+        <div className="instructions">
+        <h2>What is an algorithm?</h2>
+        <p>An algorithm refers to a set of step-by-step instructions for performing a task or solving a problem. 
+          <br />
+          In this activity, you, the ‘programmer’, will need to follow a set of instructions to complete this activity.</p>
+        <br />
+        <h2>What is a Sequence?</h2>
+          <p>In order to complete this challenge, you, the ‘programmer’ will need to touch the boxes on screen to activate them and complete the sequence. 
+            <br />
+            If you don’t, there will be a bug in the code, the game will hit an 'infinite loop', and will never stop…</p>
+      </div>
         </Webdiv>
       )}
     </div>
+
   );
 }
 
@@ -183,5 +195,14 @@ const Webdiv = styled.div`{
   margin: auto;
   height: 100vh;
   top: 150px;
+  .instructions {
+    background-color: var(--yellow);
+    float: right;
+    position: relative;
+    left: 50px;;
+    text-align: center;
+    max-width: 35%;
+    border-radius: 35%;
+  }
 }
 `;
