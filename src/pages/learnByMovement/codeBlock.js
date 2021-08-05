@@ -10,7 +10,7 @@ import StartInstructions from "../../components/StartInstructions";
 import net from "../../images/net.png";
 import ball from "../../images/ball.png";
 
-export default function LearnLoops() {
+export default function CodeBlock() {
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
 
@@ -24,7 +24,7 @@ export default function LearnLoops() {
       });
       setInterval(() => {
         detect(net);
-      }, 1000);
+      }, 100);
     };
     const detect = async (net) => {
       if (
@@ -290,6 +290,7 @@ const Webdiv = styled.div`
   border-color: red;
   border-style: double;
   border-width: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 `;
 
 const ButtonDiv = styled.div`

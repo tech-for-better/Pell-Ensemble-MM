@@ -6,19 +6,34 @@ export default function StartInstructions({ step }) {
     case 0:
       return (
         <InstructionDiv>
-          <p>Step 0 instructions</p>
+          <p>Let's create some blocks of code with following the movement</p>
         </InstructionDiv>
       );
     case 1:
       return (
         <InstructionDiv>
-          <p>Step 1 instructions</p>
+          <p>You will unlock the balls</p>
+          <p>
+            {" "}
+            Raise your hand and reach to the top corners Keep hand on the locks
+            if the border around flashing to green means your position is fine
+            wait for 5 seconds
+          </p>
         </InstructionDiv>
       );
     case 2:
       return (
         <InstructionDiv>
-          <p>Step 22222222 instructions</p>
+          <p>
+            Raise your hand and reach to the top corners Drag the balls while
+            your hand slowly towards the basket{" "}
+          </p>
+        </InstructionDiv>
+      );
+    case 3:
+      return (
+        <InstructionDiv>
+          <p>AMAZING You have created some blocks of</p>
         </InstructionDiv>
       );
     default:
@@ -27,17 +42,12 @@ export default function StartInstructions({ step }) {
 }
 
 const InstructionDiv = styled.div`
-  font-size: 1.5rem;
-  width: 45vw;
-  height: 40vh;
-  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  width: 48vw;
+  height: 47vh;
   padding-top: 1%;
   border-radius: 10px;
   background-color: #cad9de;
-  opacity: 1;
-  background-image: radial-gradient(#008ac5 0.4px, transparent 0.4px),
-    radial-gradient(#008ac5 0.4px, #cad9de 0.4px);
-  background-size: 16px 16px;
-  background-position: 0 0, 8px 8px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 `;
