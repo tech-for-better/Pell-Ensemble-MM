@@ -1,23 +1,27 @@
 import React from "react";
 import NavBar from './components/NavBar';
-import Codeandmove from "./pages/Codeandmove";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import LearnLoops from "./pages/learnByMovement/learnLoops";
+import LearnSequences from './pages/learnByMovement/learnSequences';
+import Footer from './components/Footer';
+import Home from './pages/Home';
 
 function App() {
   return (
     <Router>
       <NavBar />
       <Switch>
-          {/* <Route path="/about">
-            <About />
-          </Route> */}
-          <Route path="/codeandmove">
-            <Codeandmove />
+          <Route path="/learnLoops">
+            <LearnLoops />
           </Route>
-          {/* <Route path="/">
+          <Route path="/learnSequences">
+            <LearnSequences />
+          </Route>
+          <Route path="/">
             <Home />
-          </Route> */}
+          </Route>
         </Switch>
+        <Footer />
       </Router>
   );
 }
