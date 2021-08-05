@@ -3,11 +3,19 @@ import styled from "styled-components";
 import main_image from "../assets/images/main_image.png"
 
 const HomeStyles = styled.div`{
+h2 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+p {
+    font-size: 1.5rem;
+}
 .container1 {
+margin-top: 50px;
 display: flex;
 justify-content: center;
 align-items: center;
-height: 110vh;
+height: 100vh;
 position: relative;
 }
 .circle {
@@ -19,9 +27,21 @@ opacity: 72%;
 margin-left: 4%
 }
 @media only screen and (max-width: 768px) {
-    .circle {
-/* display: none; */
+    * {
+        overflow: hidden;
     }
+    .container1 {
+display: inline-block;
+    }
+}
+h2 {
+    text-align: center;
+    font-size: 1.9rem;
+}
+p {
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 20px;
 }
 }
 `;
