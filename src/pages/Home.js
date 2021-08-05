@@ -1,24 +1,26 @@
 import React from 'react';
 import styled from "styled-components";
+import main_image from "../assets/images/main_image.png"
 
 const HomeStyles = styled.div`{
-.container {
-
+.container1 {
+display: flex;
+justify-content: center;
+align-items: center;
+top: 50%;
+bottom: 50%;
 }
 .circle {
 width: 479px;
 height: 479px;
-right: 1%;
-position: fixed;
-top: 50%;
-transform: translate(-50%, -50%);
 background: #ECE0B0;
 border-radius: 50%;
-display: inline-block;
+opacity: 72%;
+margin-left: 4%
 }
 @media only screen and (max-width: 768px) {
     .circle {
-display: none;
+/* display: none; */
     }
 }
 }
@@ -28,9 +30,17 @@ export default function Home() {
   return (
     <div>
         <HomeStyles>
-            <div className="container">
-            <div className="circle">
+            <div className="container1">
+            <div>
+                <h2>Move and Code</h2>
+                <p>Learn computer programming fundamentals through movement.
+<br />
+Explore learning about block code and computer programing 
+<br />
+by simply switching on your webcam and completing the movements on screen.</p>
             </div>
+            <img className="circle" src={main_image}>
+            </img>
             </div>
         </HomeStyles>
     </div>
