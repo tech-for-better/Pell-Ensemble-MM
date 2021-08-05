@@ -171,15 +171,17 @@ export default function LearnAlgorithm() {
           start
         </button>
         <div className="instructions">
+          <div>
         <h2>What is an algorithm?</h2>
-        <p>An algorithm refers to a set of step-by-step instructions for performing a task or solving a problem. 
-
-          In this activity, you, the ‘programmer’, will need to follow a set of instructions to complete this activity.</p>
-
+        <p>An algorithm refers to a set of step-by-step instructions for performing a task or solving a problem.
+        In this activity, you, the ‘programmer’, will need to follow a set of instructions to complete this activity. </p>
+        </div>
+          <div>
         <h2>What is a Sequence?</h2>
           <p>In order to complete this challenge, you, the ‘programmer’ will need to touch the boxes on screen to activate them and complete the sequence. 
 
             If you don’t, there will be a bug in the code and the timer will run out…</p>
+            </div>
       </div>
         </Webdiv>
       )}
@@ -189,27 +191,32 @@ export default function LearnAlgorithm() {
 
 const Webdiv = styled.div`{
   position: relative;
+  overflow: hidden;
   /* transform: scaleX(-1); */
   width: 80vw;
-  margin: auto;
+  margin: 0;
   height: 100vh;
-  top: 250px;
+  top: 200px;
   left: 1%;
   .instructions {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
     background-color: var(--yellow);
     float: right;
     position: relative;
-    right: 1%;
     text-align: center;
-    max-width: 35%;
+    max-width: 40%;
     border-radius: 10%;
-    min-height: 35vh;
-    max-height: 90vh;
+    min-height: 55vh;
+    max-height: 100vh;
     h2 {
-      font-size: 2rem;
-      bottom: 0.5rem;
+      font-size: 2.2rem;
+      bottom: 1.75rem;
     }
-    p { font-size: 1rem;
+    p { font-size: 1.4rem;
+      line-height: 1.75rem;
   
     }
   }
