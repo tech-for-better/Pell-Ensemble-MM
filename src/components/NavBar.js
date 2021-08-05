@@ -126,13 +126,13 @@ export default function NavBar() {
         </li>
         <li>
           <NavLink
-            to="/learnLoops"
+            to="/codeBlock"
             onClick={() => setShowNav(!showNav)}
             role="button"
             onKeyDown={() => setShowNav(!showNav)}
             tabIndex={0}
           >
-            Learn Loops
+            CodeBlock
           </NavLink>
         </li>
         <li>
