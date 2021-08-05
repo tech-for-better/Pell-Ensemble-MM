@@ -52,6 +52,7 @@ export default function CodeBlock() {
         const square4 = document.querySelector(".square4");
 
         if (
+          step === 1 &&
           /*         left hand if on the position*/
           pose.keypoints[9].position.y < topy + 100 &&
           pose.keypoints[9].position.x < leftx + 100 &&
@@ -60,9 +61,7 @@ export default function CodeBlock() {
           wendiv.style.borderColor = "green";
           square1.style.opacity = 0;
           square2.style.opacity = 0;
-          if (square2.style.opacity === 0) {
-            setStep(2);
-          }
+          setStep(2);
         } else {
           wendiv.style.borderColor = "red";
         }
@@ -106,6 +105,7 @@ export default function CodeBlock() {
             wendiv.style.borderColor = "green";
             square3.style.left = "240px";
             square4.style.right = "240px";
+            setStep(3);
           }
         }
 

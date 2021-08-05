@@ -21,13 +21,21 @@ export default function CodeBlocks({ step }) {
     case 2:
       return (
         <CodeBlockDiv>
-          <p>Step</p>
+          <p>Balls' position = corner</p>
+          <p>Dragging balls</p>
+          <p>Balls' position = corner</p>
+          <p>Balls' position = in the middle</p>
         </CodeBlockDiv>
       );
     case 3:
       return (
         <CodeBlockDiv>
-          <p>St</p>
+          <p>Balls' position = corner</p>
+          <p>Balls' state = locked</p>
+          <p>Raising hands</p>
+          <p>Balls' state = unlocked</p>
+          <p>Dragging balls</p>
+          <p>Balls' position = in the middle</p>
         </CodeBlockDiv>
       );
     default:
