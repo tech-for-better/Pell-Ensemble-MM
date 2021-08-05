@@ -33,7 +33,6 @@ margin-left: 4%
     .container1 {
 display: inline-block;
     }
-}
 h2 {
     text-align: center;
     font-size: 1.9rem;
