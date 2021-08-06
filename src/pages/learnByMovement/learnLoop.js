@@ -6,7 +6,8 @@ import { drawKeypoints } from "../../utilities";
 import styled from "styled-components";
 import LoopCodes from "../../components/LoopCodes";
 import LoopInstruction from "../../components/LoopInstruction";
-import appsound from "../../audio/app_sounds_note1.mp3";
+import Hihat from "../../audio/Hihat.mp3";
+import Kick from "../../audio/Kick.mp3";
 
 export default function LearnLoop() {
   const webcamRef = useRef(null);
@@ -44,7 +45,8 @@ export default function LearnLoop() {
         const wendiv = document.getElementById("webdiv");
         const topy = wendiv.offsetTop;
         const leftx = wendiv.offsetLeft;
-        const audioObj = new Audio(appsound);
+        const hihatsound = new Audio(Hihat);
+        const kicksound = new Audio(Kick);
         if (
           (step === 1 &&
             pose.keypoints[9].position.y < topy + 250 &&
@@ -56,7 +58,6 @@ export default function LearnLoop() {
             pose.keypoints[9].position.x < leftx + 640)
         ) {
           wendiv.style.borderColor = "green";
-          audioObj.play();
           score++;
           document.getElementById("score").innerText = score;
           if (score === 50) {
@@ -64,6 +65,22 @@ export default function LearnLoop() {
           }
         } else {
           wendiv.style.borderColor = "#4b0082";
+        }
+        if (
+          step === 1 &&
+          pose.keypoints[9].position.y < topy + 250 &&
+          pose.keypoints[9].position.x < leftx + 100 &&
+          leftx < pose.keypoints[9].position.x
+        ) {
+          hihatsound.play();
+        }
+        if (
+          step === 1 &&
+          pose.keypoints[9].position.y < topy + 250 &&
+          leftx + 500 < pose.keypoints[9].position.x &&
+          pose.keypoints[9].position.x < leftx + 640
+        ) {
+          kicksound.play();
         }
         /***********************************************************************************************************/
 
