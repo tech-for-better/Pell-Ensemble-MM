@@ -6,9 +6,9 @@ import { drawKeypoints } from "../../utilities";
 import styled from "styled-components";
 import CodeBlocks from "../../components/CodeBlocks";
 import StartInstructions from "../../components/StartInstructions";
-// import appsound from "../../audio/app_sounds_note1.mp3";
+import appsound from "../../audio/app_sounds_note1.mp3";
 
-export default function CodeBlock() {
+export default function LearnLoop() {
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
 
@@ -44,6 +44,16 @@ export default function CodeBlock() {
         const wendiv = document.getElementById("webdiv");
         const topy = wendiv.offsetTop;
         const leftx = wendiv.offsetLeft;
+        const audioObj = new Audio(appsound);
+        if (
+          step === 1 &&
+          pose.keypoints[9].position.y < topy + 250 &&
+          pose.keypoints[9].position.x < leftx + 100 &&
+          leftx < pose.keypoints[9].position.x
+        ) {
+          wendiv.style.borderColor = "green";
+          audioObj.play();
+        }
 
         /***********************************************************************************************************/
 
@@ -70,6 +80,36 @@ export default function CodeBlock() {
       </NoneCameraWrap>
       <CamCanWrap>
         <Webdiv id="webdiv">
+          <div
+            className="square1"
+            style={{
+              position: "absolute",
+              right: 0,
+              top: 100,
+              zIndex: 5,
+              width: 100,
+              height: 150,
+              backgroundColor: "red",
+              transition: "right 2s",
+            }}
+          >
+            1
+          </div>
+          <div
+            className="square2"
+            style={{
+              position: "absolute",
+              left: 0,
+              top: 100,
+              zIndex: 5,
+              width: 100,
+              height: 150,
+              backgroundColor: "red",
+              transition: "right 2s",
+            }}
+          >
+            2
+          </div>
           <Webcam
             ref={webcamRef}
             style={{

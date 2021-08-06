@@ -10,19 +10,19 @@ const HomeStyles = styled.div`
   p {
     font-size: 1.6rem;
   }
+  .text {
+    text-align: center;
+  }
   .container1 {
-    margin-top: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     position: relative;
-    padding: 2.5rem 1.5rem 0 1.5rem;
+    padding: 0rem 1.5rem 0 1.5rem;
   }
   .circle {
     margin-left: 4%;
-    filter: hue-rotate(24deg);
-    opacity: 96%;
   }
   @media only screen and (max-width: 768px) {
     * {
@@ -48,7 +48,7 @@ export default function Home() {
     <div>
       <HomeStyles>
         <div className="container1">
-          <div>
+          <div class="text">
             <h1>Move and Code</h1>
             <p>
               Learn computer programming fundamentals through movement.

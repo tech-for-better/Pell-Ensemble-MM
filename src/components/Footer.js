@@ -2,9 +2,6 @@ import React from "react";
 import styled from "styled-components";
 
 const FooterStyle = styled.div`
-  text-align: center;
-  font-size: 1.3rem;
-  align-self: flex-end;
   .footer-container {
     display: flex;
     gap: 3rem;
