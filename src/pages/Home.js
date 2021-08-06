@@ -53,8 +53,8 @@ export default function Home() {
             <p>
               Learn computer programming fundamentals through movement.
               <br />
-              Explore learning about block code and computer programing
               <br />
+              Explore learning about block code and computer programing
               by switching on your webcam and completing the movements on
               screen.
             </p>
