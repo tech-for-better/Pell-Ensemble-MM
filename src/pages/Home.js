@@ -17,9 +17,12 @@ const HomeStyles = styled.div`
     align-items: center;
     height: 100vh;
     position: relative;
+    padding: 2.5rem 1.5rem 0 1.5rem;
   }
   .circle {
     margin-left: 4%;
+    filter: hue-rotate(22deg);
+    opacity: 96%;
   }
   @media only screen and (max-width: 768px) {
     * {
