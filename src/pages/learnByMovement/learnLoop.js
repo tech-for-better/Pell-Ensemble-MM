@@ -7,7 +7,6 @@ import styled from "styled-components";
 import LoopCodes from "../../components/LoopCodes";
 import LoopInstruction from "../../components/LoopInstruction";
 import appsound from "../../audio/app_sounds_note1.mp3";
-import Counter from "../../components/Counter";
 
 export default function LearnLoop() {
   const webcamRef = useRef(null);
@@ -47,17 +46,24 @@ export default function LearnLoop() {
         const leftx = wendiv.offsetLeft;
         const audioObj = new Audio(appsound);
         if (
-          step === 1 &&
-          pose.keypoints[9].position.y < topy + 250 &&
-          pose.keypoints[9].position.x < leftx + 100 &&
-          leftx < pose.keypoints[9].position.x
+          (step === 1 &&
+            pose.keypoints[9].position.y < topy + 250 &&
+            pose.keypoints[9].position.x < leftx + 100 &&
+            leftx < pose.keypoints[9].position.x) ||
+          (step === 1 &&
+            pose.keypoints[9].position.y < topy + 250 &&
+            leftx + 500 < pose.keypoints[9].position.x &&
+            pose.keypoints[9].position.x < leftx + 640)
         ) {
           wendiv.style.borderColor = "green";
           audioObj.play();
           score++;
-
           document.getElementById("score").innerText = score;
-          console.log(score);
+          if (score === 50) {
+            setStep(2);
+          }
+        } else {
+          wendiv.style.borderColor = "#4b0082";
         }
         /***********************************************************************************************************/
 
@@ -83,7 +89,10 @@ export default function LearnLoop() {
         <LoopCodes step={step} />
       </NoneCameraWrap>
       <CamCanWrap>
-        <Counter score={score} />
+        <CountDiv>
+          <p>score:</p>
+          <span id="score">0</span>
+        </CountDiv>
         <Webdiv id="webdiv">
           <div
             className="square1"
@@ -200,4 +209,17 @@ const ButtonDiv = styled.div`
   &:hover {
     background-color: #6f20aa;
   }
+`;
+
+const CountDiv = styled.div`
+  width: 30vw;
+  height: 10vh;
+  /* background-color: #91bbba; */
+  text-align: center;
+  padding-top: 1%;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 3rem;
 `;

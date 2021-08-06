@@ -12,31 +12,21 @@ export default function LoopCodes({ step }) {
     case 1:
       return (
         <CodeBlockDiv>
-          <p>Balls' state = locked</p>
-          <p>Raising hands</p>
-          <p>wait for 5 seconds</p>
-          <p>Balls' state = unlocked</p>
+          <p>Score=0</p>
+          <p>While the score is less </p>
+          <p>Move hands to touch the red boxes</p>
         </CodeBlockDiv>
       );
     case 2:
       return (
         <CodeBlockDiv>
-          <p>Balls' position = corner</p>
-          <p>Dragging balls</p>
-          <p>Balls' position = in the middle</p>
+          {" "}
+          <p>Score=0</p>
+          <p>While the score is less </p>
+          <p>Move hands to touch the red boxes</p>
         </CodeBlockDiv>
       );
-    case 3:
-      return (
-        <CodeBlockDiv>
-          <p>Balls' position = corner</p>
-          <p>Balls' state = locked</p>
-          <p>Raising hands</p>
-          <p>Balls' state = unlocked</p>
-          <p>Dragging balls</p>
-          <p>Balls' position = in the middle</p>
-        </CodeBlockDiv>
-      );
+
     default:
       return null;
   }

@@ -12,7 +12,11 @@ export default function LoopInstruction({ step }) {
         </InstructionDiv>
       );
     case 1:
-      return <InstructionDiv></InstructionDiv>;
+      return (
+        <InstructionDiv>
+          <p>Touch the red box until you get to the 50 score</p>
+        </InstructionDiv>
+      );
     case 2:
       return (
         <InstructionDiv>
