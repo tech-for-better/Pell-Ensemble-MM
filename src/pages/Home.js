@@ -48,7 +48,7 @@ export default function Home() {
     <div>
       <HomeStyles>
         <div className="container1">
-          <div class="text">
+          <div className="text">
             <h1>Move and Code</h1>
             <p>
               Learn computer programming fundamentals through movement.
