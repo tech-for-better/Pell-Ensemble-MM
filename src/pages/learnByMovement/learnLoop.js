@@ -62,6 +62,8 @@ export default function LearnLoop() {
           document.getElementById("score").innerText = score;
           if (score === 50) {
             setStep(2);
+            document.getElementById("fifty").style.display = "block";
+            document.getElementById("score").style.display = "none";
           }
         } else {
           wendiv.style.borderColor = "#4b0082";
@@ -109,6 +111,7 @@ export default function LearnLoop() {
         <CountDiv>
           <p>score:</p>
           <span id="score">0</span>
+          <span id="fifty">50</span>
         </CountDiv>
         <Webdiv id="webdiv">
           <div
@@ -231,7 +234,6 @@ const ButtonDiv = styled.div`
 const CountDiv = styled.div`
   width: 30vw;
   height: 10vh;
-  /* background-color: #91bbba; */
   text-align: center;
   padding-top: 1%;
   margin-top: 1rem;
@@ -239,4 +241,7 @@ const CountDiv = styled.div`
   justify-content: space-around;
   align-items: center;
   font-size: 3rem;
+  #fifty {
+    display: none;
+  }
 `;
