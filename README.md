@@ -34,7 +34,7 @@ What can you do?
 - @tensorflow/tfjs"
 - @tensorflow-models/posenet
 - use-window-size-hook
-- 
+
 ## Installation
 
 To run:
