@@ -55,12 +55,13 @@ const NavStyles = styled.nav`
   .mobile-menu-icon {
     position: absolute;
     right: 1rem;
-    top: 1rem;
+    top: -0.2rem;
+    margin-bottom: 1.5rem;
     width: 4rem;
     cursor: pointer;
     display: none;
     outline: none;
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     * {
       pointer-events: none;
     }
@@ -101,9 +102,9 @@ const NavStyles = styled.nav`
         display: block;
         margin-bottom: 1rem;
       }
-      .logo {
+      /* .logo {
         font-size: 1rem;
-      }
+      } */
     }
   }
 `;
