@@ -44,14 +44,14 @@ const InstructionDiv = styled.div`
   p {
     padding: 1rem;
     font-family: "Gowun Batang", serif;
-    background: linear-gradient(
+    /* background: linear-gradient(
       90deg,
       rgba(5, 125, 34, 1) 5%,
       rgba(128, 33, 62, 1) 40%,
       rgba(35, 0, 60, 1) 100%
     );
     background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent; */
     display: inline-block;
   }
 `;
