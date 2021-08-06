@@ -7,23 +7,23 @@ export default function StartInstructions({ step }) {
       return (
         <InstructionDiv>
           <p>Let's create some blocks of code</p>
-          <p>Click on Start button</p>
-          <p>and follow the instruction</p>
+          <p>Click on the Start button</p>
+          <p>and follow the instructions</p>
         </InstructionDiv>
       );
     case 1:
       return (
         <InstructionDiv>
           <p> Raise your hand and reach to the top corners</p>
-          <p> Keep hand on the locks</p>
-          <p>if the border around flashing to green, your position is fine</p>
+          <p> Keep your hands on the locks</p>
+          <p>if the border is green, you're striking the right pose!</p>
           <p> wait for 5 seconds</p>
         </InstructionDiv>
       );
     case 2:
       return (
         <InstructionDiv>
-          <p>Raise your hand and reach to the top corners</p>
+          <p>Raise your hands and reach to the top corners</p>
           <p> Drag your hands very slowly towards the basket</p>
         </InstructionDiv>
       );
