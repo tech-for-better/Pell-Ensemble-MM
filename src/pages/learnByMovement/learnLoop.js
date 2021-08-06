@@ -8,6 +8,8 @@ import LoopCodes from "../../components/LoopCodes";
 import LoopInstruction from "../../components/LoopInstruction";
 import Hihat from "../../audio/Hihat.mp3";
 import Kick from "../../audio/Kick.mp3";
+import hihat from "../../images/hihat1.png";
+import drum from "../../images/drum1.png";
 
 export default function LearnLoop() {
   const webcamRef = useRef(null);
@@ -121,13 +123,19 @@ export default function LearnLoop() {
               right: 0,
               top: 100,
               zIndex: 5,
-              width: 100,
+              width: 150,
               height: 150,
-              backgroundColor: "red",
               transition: "right 2s",
             }}
           >
-            1
+            <img
+              src={drum}
+              alt="drum"
+              style={{
+                width: 150,
+                height: 100,
+              }}
+            />
           </div>
           <div
             className="square2"
@@ -137,12 +145,17 @@ export default function LearnLoop() {
               top: 100,
               zIndex: 5,
               width: 100,
-              height: 150,
-              backgroundColor: "red",
               transition: "right 2s",
             }}
           >
-            2
+            <img
+              src={hihat}
+              alt="hihat"
+              style={{
+                width: 100,
+                height: 100,
+              }}
+            />
           </div>
           <Webcam
             ref={webcamRef}
