@@ -13,7 +13,7 @@ What can you do?
 - Interact with webcam images
 - "Complete" sections/levels and unlock answers
 - Navigate through the web portal
-- Responsive navbar for smaller screens
+- Use responsive navbar for smaller screens
 
 ## Tech Stack
 - React
