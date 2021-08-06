@@ -4,16 +4,17 @@ import * as posenet from "@tensorflow-models/posenet";
 import Webcam from "react-webcam";
 import { drawKeypoints } from "../../utilities";
 import styled from "styled-components";
-import CodeBlocks from "../../components/CodeBlocks";
-import StartInstructions from "../../components/StartInstructions";
+import LoopCodes from "../../components/LoopCodes";
+import LoopInstruction from "../../components/LoopInstruction";
 import appsound from "../../audio/app_sounds_note1.mp3";
+import Counter from "../../components/Counter";
 
 export default function LearnLoop() {
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
 
   const [step, setStep] = useState(0);
-
+  let score = 0;
   useEffect(() => {
     const runPosenet = async () => {
       const net = await posenet.load({
@@ -53,8 +54,11 @@ export default function LearnLoop() {
         ) {
           wendiv.style.borderColor = "green";
           audioObj.play();
-        }
+          score++;
 
+          document.getElementById("score").innerText = score;
+          console.log(score);
+        }
         /***********************************************************************************************************/
 
         drawCanvas(pose, video, videoWidth, videoHeight, canvasRef);
@@ -75,10 +79,11 @@ export default function LearnLoop() {
   return (
     <Wrapper>
       <NoneCameraWrap>
-        <StartInstructions step={step} />
-        <CodeBlocks step={step} />
+        <LoopInstruction step={step} />
+        <LoopCodes step={step} />
       </NoneCameraWrap>
       <CamCanWrap>
+        <Counter score={score} />
         <Webdiv id="webdiv">
           <div
             className="square1"
@@ -148,7 +153,7 @@ export default function LearnLoop() {
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
-  padding-top: 5rem;
+  padding-top: 4rem;
 `;
 const NoneCameraWrap = styled.div`
   width: 50vw;
@@ -163,9 +168,11 @@ const CamCanWrap = styled.div`
   width: 50vw;
   height: 90vh;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   padding-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
 `;
 const Webdiv = styled.div`
   position: relative;
@@ -184,7 +191,7 @@ const ButtonDiv = styled.div`
   font-weight: bold;
   position: absolute;
   padding: 1.5rem 2.5rem;
-  bottom: 40px;
+  bottom: 5px;
   left: 40%;
   cursor: pointer;
   color: white;
