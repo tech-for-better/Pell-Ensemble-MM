@@ -5,6 +5,8 @@ import * as posenet from "@tensorflow-models/posenet";
 import Webcam from "react-webcam";
 import { drawKeypoints } from "../../utilities";
 import styled from "styled-components";
+import { useWindowSize } from 'use-window-size-hook';
+import Confetti from 'react-confetti'
 
 const Wrapper = styled.div`
   display: flex;
@@ -57,19 +59,24 @@ const ButtonDiv = styled.div`
 `;
 
 const Instructions = styled.div`
-  margin-top: 2rem;
-  font-size: 2.5rem;
-  width: 48vw;
-  height: 100vh;
+  margin-top: 5rem;
+  width: 38vw;
+  height: 70vh;
+  z-index: 1;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  background-color: #cad9de;
+  /* align-items: center; */
+  background-color: var(--yellow);
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+  }
   p {
     padding: 1rem;
+    font-size: 1.75rem;
     /* background: linear-gradient(
       90deg,
       rgba(5, 125, 34, 1) 5%,
@@ -82,10 +89,24 @@ const Instructions = styled.div`
   }
 `;
 
+// export default () => {
+
+// }
+
 export default function LearnAlgorithm() {
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
   const [camera, setCamera] = useState(false);
+
+  
+    // const { width, height } = useWindowSize()
+    // return (
+    //   <Confetti
+    //     width={width}
+    //     height={height}
+    //   />
+    // )
+  
   //  Load posenet
   if (camera === true) {
     const runPosenet = async () => {
@@ -95,11 +116,11 @@ export default function LearnAlgorithm() {
       });
       //
       setInterval(() => {
-        detect(net);
+        Detect(net);
       }, 100);
     };
 
-    const detect = async (net) => {
+    const Detect = async (net) => {
       if (
         typeof webcamRef.current !== "undefined" &&
         webcamRef.current !== null &&
@@ -134,6 +155,8 @@ export default function LearnAlgorithm() {
             document.getElementById("square1").style.backgroundColor = "blue";
             // document.getElementById("displayArea").innerHTML = "working";
           }
+
+      
 
         console.log(pose.keypoints[9]);
 
