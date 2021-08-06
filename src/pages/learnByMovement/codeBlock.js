@@ -55,7 +55,7 @@ export default function CodeBlock() {
         if (
           step === 1 &&
           /*         left hand if on the position*/
-          pose.keypoints[9].position.y < topy + 100 &&
+          pose.keypoints[9].position.y < topy + 150 &&
           pose.keypoints[9].position.x < leftx + 100 &&
           leftx < pose.keypoints[9].position.x
         ) {
@@ -69,7 +69,7 @@ export default function CodeBlock() {
         if (step === 2) {
           if (
             /*         left hand if on the position*/
-            pose.keypoints[9].position.y < topy + 100 &&
+            pose.keypoints[9].position.y < topy + 150 &&
             pose.keypoints[9].position.x < leftx + 100 &&
             leftx < pose.keypoints[9].position.x
           ) {
@@ -78,7 +78,7 @@ export default function CodeBlock() {
             wendiv.style.borderColor = "#4b0082";
           }
           if (
-            pose.keypoints[9].position.y < topy + 100 &&
+            pose.keypoints[9].position.y < topy + 150 &&
             pose.keypoints[9].position.x < leftx + 150 &&
             leftx + 100 < pose.keypoints[9].position.x
           ) {
@@ -88,7 +88,7 @@ export default function CodeBlock() {
           }
           if (
             square3.style.left === "50px" &&
-            pose.keypoints[9].position.y < topy + 100 &&
+            pose.keypoints[9].position.y < topy + 150 &&
             pose.keypoints[9].position.x < leftx + 200 &&
             leftx + 150 < pose.keypoints[9].position.x
           ) {
@@ -99,7 +99,7 @@ export default function CodeBlock() {
 
           if (
             square3.style.left === "100px" &&
-            pose.keypoints[9].position.y < topy + 100 &&
+            pose.keypoints[9].position.y < topy + 150 &&
             pose.keypoints[9].position.x < leftx + 260 &&
             leftx + 200 < pose.keypoints[9].position.x
           ) {
