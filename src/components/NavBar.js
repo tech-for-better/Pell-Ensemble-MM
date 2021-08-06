@@ -10,26 +10,27 @@ const NavStyles = styled.nav`
   top: 0;
   left: 0;
   width: 100%;
-  .logo-container {
-      width: 25%;
-      height: 90%;
-      display: flex;
-      align-items: center;
-  }
+
   .logo {
-        font-size: 1.75rem;
-        align-self: center;
-        margin-left: 1.75rem;
-        padding: 3rem 0 0 0;
-        text-decoration: none;
-        font-family: "RobotoMono Bold";
-    }
+    font-size: 1.75rem;
+    padding-left: 3rem;
+    align-self: center;
+    text-decoration: none;
+    font-family: "RobotoMono Bold";
+  }
+  .navecontain {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
   ul {
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 90%;
+    max-width: 100%;
+    margin: 0;
+    padding-right: 2rem;
     text-align: center;
     li {
+      margin: 0;
+      padding: 0;
       display: inline-block;
       border-radius: 8px;
       transition: 0.3s ease background-color;
@@ -101,7 +102,7 @@ const NavStyles = styled.nav`
         margin-bottom: 1rem;
       }
       .logo {
-          font-size: 1rem;
+        font-size: 1rem;
       }
     }
   }
@@ -111,11 +112,6 @@ export default function NavBar() {
   const [showNav, setShowNav] = useState(false);
   return (
     <NavStyles>
-        <div className="logo-container">
-      <a className="logo" target="_blank" rel="noreferrer" href="http://pellensemble.com">
-        Pell Ensemble
-      </a>
-      </div>
       <div
         className="mobile-menu-icon"
         onClick={() => setShowNav(!showNav)}
@@ -125,52 +121,61 @@ export default function NavBar() {
       >
         <MdMenu />
       </div>
-
-      <ul className={!showNav ? "navItems hide-item" : "navItems"}>
-        <div
-          className="closeNavIcon"
-          onClick={() => setShowNav(!showNav)}
-          role="button"
-          onKeyDown={() => setShowNav(!showNav)}
-          tabIndex={0}
+      <div className="navecontain">
+        <a
+          className="logo"
+          target="_blank"
+          rel="noreferrer"
+          href="http://pellensemble.com"
         >
-          <MdClose />
-        </div>
-        <li>
-          <NavLink
-            to="/"
-            exact
+          Pell Ensemble
+        </a>
+        <ul className={!showNav ? "navItems hide-item" : "navItems"}>
+          <div
+            className="closeNavIcon"
             onClick={() => setShowNav(!showNav)}
             role="button"
             onKeyDown={() => setShowNav(!showNav)}
             tabIndex={0}
           >
-            Home
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/codeBlock"
-            onClick={() => setShowNav(!showNav)}
-            role="button"
-            onKeyDown={() => setShowNav(!showNav)}
-            tabIndex={0}
-          >
-            CodeBlock
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/learnSequences"
-            onClick={() => setShowNav(!showNav)}
-            role="button"
-            onKeyDown={() => setShowNav(!showNav)}
-            tabIndex={0}
-          >
-            Learn Sequences
-          </NavLink>
-        </li>
-      </ul>
+            <MdClose />
+          </div>
+          <li>
+            <NavLink
+              to="/"
+              exact
+              onClick={() => setShowNav(!showNav)}
+              role="button"
+              onKeyDown={() => setShowNav(!showNav)}
+              tabIndex={0}
+            >
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/codeBlock"
+              onClick={() => setShowNav(!showNav)}
+              role="button"
+              onKeyDown={() => setShowNav(!showNav)}
+              tabIndex={0}
+            >
+              CodeBlock
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/learnSequences"
+              onClick={() => setShowNav(!showNav)}
+              role="button"
+              onKeyDown={() => setShowNav(!showNav)}
+              tabIndex={0}
+            >
+              Learn Sequences
+            </NavLink>
+          </li>
+        </ul>
+      </div>
       <hr />
     </NavStyles>
   );

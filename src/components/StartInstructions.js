@@ -30,7 +30,7 @@ export default function StartInstructions({ step }) {
     case 3:
       return (
         <InstructionDiv>
-          <p className="firstp">AMAZING You have created some blocks of</p>
+          <p className="firstp">AMAZING You have created some blocks of code</p>
         </InstructionDiv>
       );
     default:
