@@ -14,22 +14,17 @@ export default function StartInstructions({ step }) {
     case 1:
       return (
         <InstructionDiv>
-          <p>You will unlock the balls</p>
-          <p>
-            {" "}
-            Raise your hand and reach to the top corners Keep hand on the locks
-            if the border around flashing to green means your position is fine
-            wait for 5 seconds
-          </p>
+          <p> Raise your hand and reach to the top corners</p>
+          <p> Keep hand on the locks</p>
+          <p>if the border around flashing to green, your position is fine</p>
+          <p> wait for 5 seconds</p>
         </InstructionDiv>
       );
     case 2:
       return (
         <InstructionDiv>
-          <p>
-            Raise your hand and reach to the top corners Drag the balls while
-            your hand slowly towards the basket{" "}
-          </p>
+          <p>Raise your hand and reach to the top corners</p>
+          <p> Drag your hands very slowly towards the basket</p>
         </InstructionDiv>
       );
     case 3:
@@ -45,7 +40,7 @@ export default function StartInstructions({ step }) {
 
 const InstructionDiv = styled.div`
   margin-top: 2rem;
-  font-size: 4rem;
+  font-size: 2.5rem;
   width: 48vw;
   height: 43vh;
   border-radius: 10px;

@@ -23,7 +23,6 @@ export default function CodeBlocks({ step }) {
         <CodeBlockDiv>
           <p>Balls' position = corner</p>
           <p>Dragging balls</p>
-          <p>Balls' position = corner</p>
           <p>Balls' position = in the middle</p>
         </CodeBlockDiv>
       );
@@ -57,6 +56,9 @@ const CodeBlockDiv = styled.div`
   justify-content: center;
   align-items: center;
   p {
+    font-weight: bold;
+    color: rgba(35, 0, 60, 1);
+    padding-top: 1rem;
     font-family: "Roboto Mono", monospace;
   }
 `;

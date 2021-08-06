@@ -64,7 +64,7 @@ export default function CodeBlock() {
           square2.style.opacity = 0;
           setStep(2);
         } else {
-          wendiv.style.borderColor = "red";
+          wendiv.style.borderColor = "#4b0082";
         }
         if (step === 2) {
           if (
@@ -75,7 +75,7 @@ export default function CodeBlock() {
           ) {
             wendiv.style.borderColor = "green";
           } else {
-            wendiv.style.borderColor = "red";
+            wendiv.style.borderColor = "#4b0082";
           }
           if (
             pose.keypoints[9].position.y < topy + 100 &&
