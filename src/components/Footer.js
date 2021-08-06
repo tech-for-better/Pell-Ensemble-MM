@@ -2,8 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 const FooterStyle = styled.div`
+  padding-top: 1.5rem;
   .footer-container {
-    display: flex;
+    /* display: flex;
     gap: 3rem;
     left: 0;
     bottom: 0;
@@ -11,7 +12,7 @@ const FooterStyle = styled.div`
     text-align: center;
     margin-bottom: auto;
     position: sticky;
-    justify-content: center;
+    justify-content: center; */
   }
 
   @media only screen and (max-width: 768px) {
@@ -33,7 +34,7 @@ const FooterStyle = styled.div`
 `;
 
 export default function Footer() {
-  return (
+   return (
     <FooterStyle className="copyright">
       <div className="footer-container">
         © 2021 - Pell Ensemble | Designed via Tech for Better

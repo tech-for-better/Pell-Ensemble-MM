@@ -10,9 +10,10 @@ padding: 0;
 :root {
     --yellow: #ECE0B0;
     --blue: #CADDDD;
-    --purple: #6A4EE0;
+    --purple: #000C66;
     --black: #252525;
     --white: #fff;
+    --green: #16796F;
     --borderRadius: 20px;
     --shadow: inset 0px 0px 0px 7px var(--black), 12px 12px 0px var(--black);
   }

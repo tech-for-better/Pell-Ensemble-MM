@@ -5,7 +5,11 @@ import CodeBlock from "./pages/learnByMovement/codeBlock";
 import LearnSequences from "./pages/learnByMovement/learnSequences";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
+
 import LearnLoop from "./pages/learnByMovement/learnLoop";
+
+import Success from "./pages/Success";
+
 
 function App() {
   return (
@@ -25,6 +29,9 @@ function App() {
           <Home />
         </Route>
       </Switch>
+      <Route path="/success">
+      <Success />
+      </Route>
       <Footer />
     </Router>
   );
