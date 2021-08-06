@@ -1,8 +1,11 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const FooterStyle = styled.div`
+<<<<<<< HEAD
   /* padding-top: 25rem; */
+=======
+>>>>>>> main
   .footer-container {
     display: flex;
     gap: 3rem;
@@ -39,13 +42,10 @@ const FooterStyle = styled.div`
 
 export default function Footer() {
   return (
-    <FooterStyle>
+    <FooterStyle className="copyright">
       <div className="copyright">
         <div className="footer-container">
-            © 2021 - Pell Ensemble | Designed via Tech for Better
-            <a target="_blank" rel="noreferrer" href="http://pellensemble.com">
-              Pell Ensemble
-            </a>
+          © 2021 - Pell Ensemble | Designed via Tech for Better
         </div>
       </div>
     </FooterStyle>

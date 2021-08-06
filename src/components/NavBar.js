@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import styled from 'styled-components';
-import { MdClose, MdMenu } from 'react-icons/md';
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
+import styled from "styled-components";
+import { MdClose, MdMenu } from "react-icons/md";
 
 const NavStyles = styled.nav`
   position: fixed;
@@ -10,6 +10,20 @@ const NavStyles = styled.nav`
   top: 0;
   left: 0;
   width: 100%;
+  .logo-container {
+      width: 25%;
+      height: 90%;
+      display: flex;
+      align-items: center;
+  }
+  .logo {
+        font-size: 1.75rem;
+        align-self: center;
+        margin-left: 1.75rem;
+        padding: 3rem 0 0 0;
+        text-decoration: none;
+        font-family: "RobotoMono Bold";
+    }
   ul {
     max-width: 1200px;
     margin: 0 auto;
@@ -22,14 +36,16 @@ const NavStyles = styled.nav`
       &:hover {
       }
     }
-    li a {text-decoration: none}
+    li a {
+      text-decoration: none;
+    }
     a {
       display: inline-block;
-      font-family: 'RobotoMono Regular';
+      font-family: "RobotoMono Regular";
       padding: 1rem 2rem;
       font-size: 2rem;
       outline: none;
-      
+      text-decoration: none;
     }
     .active {
       color: var(--white);
@@ -84,6 +100,9 @@ const NavStyles = styled.nav`
         display: block;
         margin-bottom: 1rem;
       }
+      .logo {
+          font-size: 1rem;
+      }
     }
   }
 `;
@@ -92,6 +111,11 @@ export default function NavBar() {
   const [showNav, setShowNav] = useState(false);
   return (
     <NavStyles>
+        <div className="logo-container">
+      <a className="logo" target="_blank" rel="noreferrer" href="http://pellensemble.com">
+        Pell Ensemble
+      </a>
+      </div>
       <div
         className="mobile-menu-icon"
         onClick={() => setShowNav(!showNav)}
@@ -102,7 +126,7 @@ export default function NavBar() {
         <MdMenu />
       </div>
 
-      <ul className={!showNav ? 'navItems hide-item' : 'navItems'}>
+      <ul className={!showNav ? "navItems hide-item" : "navItems"}>
         <div
           className="closeNavIcon"
           onClick={() => setShowNav(!showNav)}
@@ -126,13 +150,13 @@ export default function NavBar() {
         </li>
         <li>
           <NavLink
-            to="/learnLoops"
+            to="/codeBlock"
             onClick={() => setShowNav(!showNav)}
             role="button"
             onKeyDown={() => setShowNav(!showNav)}
             tabIndex={0}
           >
-            Learn Loops
+            CodeBlock
           </NavLink>
         </li>
         <li>

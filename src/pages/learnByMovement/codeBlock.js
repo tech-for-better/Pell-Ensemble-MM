@@ -9,28 +9,23 @@ import StartInstructions from "../../components/StartInstructions";
 // import appsound from "../../audio/app_sounds_note1.mp3";
 import net from "../../images/net.png";
 import ball from "../../images/ball.png";
+import locked from "../../images/locked.png";
 
-export default function LearnLoops() {
+export default function CodeBlock() {
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
-  // const webdiv = document.querySelector(".webdiv");
-  // const [camera, setCamera] = useState(false);
+
   const [step, setStep] = useState(0);
 
   useEffect(() => {
-    //  Load posenet
-
-    /******************************* setting camera, canvas and poseNet */
-    // webdiv.style.display = "block";
     const runPosenet = async () => {
       const net = await posenet.load({
         inputResolution: { width: 640, height: 480 },
         scale: 0.8,
       });
-      //
       setInterval(() => {
         detect(net);
-      }, 1000);
+      }, 100);
     };
     const detect = async (net) => {
       if (
@@ -48,31 +43,28 @@ export default function LearnLoops() {
         webcamRef.current.video.height = videoHeight;
         // Make Detections
         const pose = await net.estimateSinglePose(video);
-        // console.log(pose.keypoints[9].position);
         /*************************************** Hands up *********************************************************************/
-        const topy = document.getElementById("mcanvas").offsetTop;
-        const leftx = document.getElementById("mcanvas").offsetLeft;
+        const wendiv = document.getElementById("webdiv");
+        const topy = wendiv.offsetTop;
+        const leftx = wendiv.offsetLeft;
         const square1 = document.querySelector(".square1");
         const square2 = document.querySelector(".square2");
         const square3 = document.querySelector(".square3");
         const square4 = document.querySelector(".square4");
-        const flag = document.querySelector(".flag");
-        // let audioObj = new Audio(appsound);
 
         if (
+          step === 1 &&
           /*         left hand if on the position*/
           pose.keypoints[9].position.y < topy + 100 &&
           pose.keypoints[9].position.x < leftx + 100 &&
           leftx < pose.keypoints[9].position.x
         ) {
-          flag.style.backgroundColor = "green";
-          // audioObj.play();
+          wendiv.style.borderColor = "green";
           square1.style.opacity = 0;
           square2.style.opacity = 0;
           setStep(2);
-          // square.style.left = "100px"
         } else {
-          flag.style.backgroundColor = "darkMagenta";
+          wendiv.style.borderColor = "red";
         }
         if (step === 2) {
           if (
@@ -81,15 +73,16 @@ export default function LearnLoops() {
             pose.keypoints[9].position.x < leftx + 100 &&
             leftx < pose.keypoints[9].position.x
           ) {
-            flag.style.backgroundColor = "green";
+            wendiv.style.borderColor = "green";
           } else {
-            flag.style.backgroundColor = "darkMagenta";
+            wendiv.style.borderColor = "red";
           }
           if (
             pose.keypoints[9].position.y < topy + 100 &&
             pose.keypoints[9].position.x < leftx + 150 &&
             leftx + 100 < pose.keypoints[9].position.x
           ) {
+            wendiv.style.borderColor = "green";
             square3.style.left = "50px";
             square4.style.right = "50px";
           }
@@ -99,6 +92,7 @@ export default function LearnLoops() {
             pose.keypoints[9].position.x < leftx + 200 &&
             leftx + 150 < pose.keypoints[9].position.x
           ) {
+            wendiv.style.borderColor = "green";
             square3.style.left = "100px";
             square4.style.right = "100px";
           }
@@ -109,8 +103,10 @@ export default function LearnLoops() {
             pose.keypoints[9].position.x < leftx + 260 &&
             leftx + 200 < pose.keypoints[9].position.x
           ) {
+            wendiv.style.borderColor = "green";
             square3.style.left = "240px";
             square4.style.right = "240px";
+            setStep(3);
           }
         }
 
@@ -138,33 +134,25 @@ export default function LearnLoops() {
         <CodeBlocks step={step} />
       </NoneCameraWrap>
       <CamCanWrap>
-        <Webdiv className="webdiv">
-          <div
-            className="flag"
-            style={{
-              position: "absolute",
-              left: 0,
-              top: -60,
-              width: 50,
-              height: 50,
-              zIndex: 10,
-              backgroundColor: "darkMagenta",
-            }}
-          ></div>
+        <Webdiv id="webdiv">
           <div
             className="square1"
             style={{
               position: "absolute",
               right: 0,
               top: 0,
-              width: 100,
-              height: 100,
               zIndex: 10,
-              backgroundColor: "green",
               transition: "opacity 2s",
             }}
           >
-            1
+            <img
+              src={locked}
+              alt="lock"
+              style={{
+                width: 90,
+                height: 90,
+              }}
+            />
           </div>
           <div
             className="square2"
@@ -172,14 +160,18 @@ export default function LearnLoops() {
               position: "absolute",
               left: 0,
               top: 0,
-              width: 100,
-              height: 100,
               zIndex: 10,
-              backgroundColor: "green",
               transition: "opacity 2s",
             }}
           >
-            2
+            <img
+              src={locked}
+              alt="lock"
+              style={{
+                width: 90,
+                height: 90,
+              }}
+            />
           </div>
           <div
             className="square3"
@@ -187,7 +179,7 @@ export default function LearnLoops() {
               position: "absolute",
               left: 0,
               top: 0,
-              backgroundColor: "red",
+
               zIndex: 5,
               transition: "left 2s",
             }}
@@ -196,8 +188,8 @@ export default function LearnLoops() {
               src={ball}
               alt="ball"
               style={{
-                width: 80,
-                height: 80,
+                width: 90,
+                height: 90,
               }}
             />
           </div>
@@ -209,7 +201,6 @@ export default function LearnLoops() {
               right: 0,
               top: 0,
               zIndex: 5,
-              backgroundColor: "red",
               transition: "right 2s",
             }}
           >
@@ -217,8 +208,8 @@ export default function LearnLoops() {
               src={ball}
               alt="ball"
               style={{
-                width: 80,
-                height: 80,
+                width: 90,
+                height: 90,
               }}
             />
           </div>
@@ -226,7 +217,6 @@ export default function LearnLoops() {
             className="basket"
             style={{
               position: "absolute",
-
               right: 240,
               top: -10,
               zIndex: 10,
@@ -246,7 +236,7 @@ export default function LearnLoops() {
             style={{
               position: "absolute",
               left: 0,
-              right: 0,
+              top: 0,
               width: 640,
               height: 480,
             }}
@@ -258,21 +248,18 @@ export default function LearnLoops() {
             style={{
               position: "absolute",
               left: 0,
-              right: 0,
+              top: 0,
               width: 640,
               height: 480,
             }}
           />
         </Webdiv>
-        <ButtonDiv>
-          <button
-            onClick={() => {
-              // setCamera(true);
-              setStep(1);
-            }}
-          >
-            start
-          </button>
+        <ButtonDiv
+          onClick={() => {
+            setStep(1);
+          }}
+        >
+          start
         </ButtonDiv>
       </CamCanWrap>
     </Wrapper>
@@ -282,27 +269,45 @@ export default function LearnLoops() {
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
+  padding-top: 5rem;
 `;
 const NoneCameraWrap = styled.div`
+  width: 50vw;
+  height: 90vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 `;
 const CamCanWrap = styled.div`
   position: relative;
-  width: 640px;
-  height: 480px;
-  background-color: red;
+  width: 50vw;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 2rem;
 `;
 const Webdiv = styled.div`
   position: relative;
-  width: 640px;
-  height: 480px;
-  // display: none;
+  width: 680px;
+  height: 520px;
   transform: scaleX(-1);
+  border-color: #4b0082;
+  border-style: double;
+  border-width: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 `;
 
 const ButtonDiv = styled.div`
+  font-size: 3rem;
+  border-radius: 10px;
+  font-weight: bold;
   position: absolute;
-  bottom: 10px;
-  left: 50%;
+  padding: 1.5rem 2.5rem;
+  bottom: 40px;
+  left: 40%;
+  cursor: pointer;
+  color: white;
+  background-color: #4b0082;
 `;
