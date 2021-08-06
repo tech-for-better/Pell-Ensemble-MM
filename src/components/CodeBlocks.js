@@ -6,7 +6,7 @@ export default function CodeBlocks({ step }) {
     case 0:
       return (
         <CodeBlockDiv>
-          <p>Code blocks will appear here</p>
+          <p className="step0">Code blocks will appear here</p>
         </CodeBlockDiv>
       );
     case 1:
@@ -44,13 +44,19 @@ export default function CodeBlocks({ step }) {
 }
 
 const CodeBlockDiv = styled.div`
-  font-size: 2rem;
+  margin-top: 1rem;
+  font-size: 2.5rem;
   width: 48vw;
   height: 40vh;
   text-align: center;
-  padding-top: 1%;
   border-radius: 10px;
   background-color: #caded1;
-
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  p {
+    font-family: "Roboto Mono", monospace;
+  }
 `;

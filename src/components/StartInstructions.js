@@ -6,7 +6,9 @@ export default function StartInstructions({ step }) {
     case 0:
       return (
         <InstructionDiv>
-          <p>Let's create some blocks of code with following the movement</p>
+          <p>Let's create some blocks of code</p>
+          <p>Click on Start button</p>
+          <p>and follow the instruction</p>
         </InstructionDiv>
       );
     case 1:
@@ -33,7 +35,7 @@ export default function StartInstructions({ step }) {
     case 3:
       return (
         <InstructionDiv>
-          <p>AMAZING You have created some blocks of</p>
+          <p className="firstp">AMAZING You have created some blocks of</p>
         </InstructionDiv>
       );
     default:
@@ -42,17 +44,28 @@ export default function StartInstructions({ step }) {
 }
 
 const InstructionDiv = styled.div`
-  font-size: 2.5rem;
-  font-weight: bold;
+  margin-top: 2rem;
+  font-size: 4rem;
   width: 48vw;
-  height: 47vh;
-  padding-top: 1%;
+  height: 43vh;
   border-radius: 10px;
-  background-color: #cad9de;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #cad9de;
   p {
-    padding: 2.5rem;
-    font-family: "Crimson Pro", serif;
-    font-family: "Old Standard TT", serif;
+    padding: 1rem;
+    font-family: "Gowun Batang", serif;
+    background: linear-gradient(
+      90deg,
+      rgba(5, 125, 34, 1) 5%,
+      rgba(128, 33, 62, 1) 40%,
+      rgba(35, 0, 60, 1) 100%
+    );
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
   }
 `;

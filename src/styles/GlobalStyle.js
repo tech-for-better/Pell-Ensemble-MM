@@ -1,9 +1,9 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300&family=Old+Standard+TT&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Changa:wght@200&family=Crimson+Pro:wght@300&family=Old+Standard+TT&family=Special+Elite&display=swap');*{
-  padding: 0;
+
+*{ 
+padding: 0;
   margin: 0;
   box-sizing: border-box;
 }

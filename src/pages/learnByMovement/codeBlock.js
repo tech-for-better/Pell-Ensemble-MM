@@ -259,7 +259,7 @@ export default function CodeBlock() {
             setStep(1);
           }}
         >
-          start
+          Start
         </ButtonDiv>
       </CamCanWrap>
     </Wrapper>
@@ -277,7 +277,7 @@ const NoneCameraWrap = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  /* justify-content: space-around; */
 `;
 const CamCanWrap = styled.div`
   position: relative;
@@ -310,4 +310,8 @@ const ButtonDiv = styled.div`
   cursor: pointer;
   color: white;
   background-color: #4b0082;
+  font-family: "Gowun Batang", serif;
+  &:hover {
+    background-color: #6f20aa;
+  }
 `;
