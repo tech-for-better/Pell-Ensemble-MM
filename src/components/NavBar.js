@@ -165,7 +165,7 @@ export default function NavBar() {
             </NavLink>
           </li>
           <li>
-            <NavLink
+            {/* <NavLink
               to="/learnSequences"
               onClick={() => setShowNav(!showNav)}
               role="button"
@@ -173,7 +173,7 @@ export default function NavBar() {
               tabIndex={0}
             >
               Learn Sequences
-            </NavLink>
+            </NavLink> */}
           </li>
         </ul>
       </div>
