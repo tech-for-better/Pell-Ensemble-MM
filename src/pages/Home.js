@@ -14,7 +14,6 @@ const HomeStyles = styled.div`
     text-align: center;
   }
   .container1 {
-    margin-top: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
