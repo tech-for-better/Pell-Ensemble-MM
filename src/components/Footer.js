@@ -2,10 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 const FooterStyle = styled.div`
-<<<<<<< HEAD
-  /* padding-top: 25rem; */
-=======
->>>>>>> main
+  text-align: center;
+  font-size: 1.3rem;
+  align-self: flex-end;
   .footer-container {
     display: flex;
     gap: 3rem;
@@ -17,11 +16,7 @@ const FooterStyle = styled.div`
     position: sticky;
     justify-content: center;
   }
-  .copyright {
-    text-align: center;
-    font-size: 1.3rem;
-    align-self: flex-end;
-  }
+
   @media only screen and (max-width: 768px) {
     .container {
       flex-direction: column;
@@ -43,10 +38,8 @@ const FooterStyle = styled.div`
 export default function Footer() {
   return (
     <FooterStyle className="copyright">
-      <div className="copyright">
-        <div className="footer-container">
-          © 2021 - Pell Ensemble | Designed via Tech for Better
-        </div>
+      <div className="footer-container">
+        © 2021 - Pell Ensemble | Designed via Tech for Better
       </div>
     </FooterStyle>
   );
