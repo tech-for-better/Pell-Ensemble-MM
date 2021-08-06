@@ -13,7 +13,7 @@ export default function CodeBlocks({ step }) {
       return (
         <CodeBlockDiv>
           <p>Balls' state = locked</p>
-          <p>Raising hands</p>
+          <p>Raise hands</p>
           <p>wait for 5 seconds</p>
           <p>Balls' state = unlocked</p>
         </CodeBlockDiv>

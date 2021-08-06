@@ -7,14 +7,14 @@ export default function LoopInstruction({ step }) {
       return (
         <InstructionDiv>
           <p>Let's create some blocks of code</p>
-          <p>Click on Start button</p>
-          <p>and follow the instruction</p>
+          <p>Click on the Start button</p>
+          <p>and follow the instructions</p>
         </InstructionDiv>
       );
     case 1:
       return (
         <InstructionDiv>
-          <p>Touch the red box until you get to the 50 score</p>
+          <p>Touch the red box until you reach a score of 50</p>
         </InstructionDiv>
       );
     case 2:
