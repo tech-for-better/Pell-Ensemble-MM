@@ -5,8 +5,7 @@ import * as posenet from "@tensorflow-models/posenet";
 import Webcam from "react-webcam";
 import { drawKeypoints } from "../../utilities";
 import styled from "styled-components";
-import { useWindowSize } from 'use-window-size-hook';
-import Confetti from 'react-confetti'
+import { Link, withRouter } from "react-router-dom";
 
 const Wrapper = styled.div`
   display: flex;
@@ -99,14 +98,6 @@ export default function LearnAlgorithm() {
   const [camera, setCamera] = useState(false);
 
   
-    // const { width, height } = useWindowSize()
-    // return (
-    //   <Confetti
-    //     width={width}
-    //     height={height}
-    //   />
-    // )
-  
   //  Load posenet
   if (camera === true) {
     const runPosenet = async () => {
@@ -147,6 +138,8 @@ export default function LearnAlgorithm() {
         ) {
           document.getElementById("square").style.backgroundColor = "blue";
           // document.getElementById("displayArea").innerHTML = "working";
+          document.getElementById("success").style.display = "inline";
+
         } else if (
             pose.keypoints[9].position.y < topy + 100 &&
             topy < pose.keypoints[9].position.y
@@ -154,8 +147,9 @@ export default function LearnAlgorithm() {
 
             document.getElementById("square1").style.backgroundColor = "blue";
             // document.getElementById("displayArea").innerHTML = "working";
-          }
+                      // document.getElementById("successbtn").style.display = "inline";
 
+          }
       
 
         console.log(pose.keypoints[9]);
@@ -199,7 +193,19 @@ export default function LearnAlgorithm() {
     <div>
       {camera === true ? (
         <Webdiv>
+                  {/* <Link to="/success">
+        <button id="successbtn" style={{    
+        position: "relative",
+        bottom: 0,
+        left: 0,
+        display: "hidden",
+}}
+            >
+              Click Me
+          </button>
+          </Link> */}
           <Countdown></Countdown>
+
           <div id="square"
             style={{
               position: "absolute",
@@ -289,6 +295,7 @@ export default function LearnAlgorithm() {
         >
           start
         </button>
+
         </div>       
         </Webdiv>
       )}
