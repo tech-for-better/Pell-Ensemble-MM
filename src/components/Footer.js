@@ -2,6 +2,10 @@ import React from "react";
 import styled from "styled-components";
 
 const FooterStyle = styled.div`
+<<<<<<< HEAD
+  /* padding-top: 25rem; */
+=======
+>>>>>>> main
   .footer-container {
     display: flex;
     gap: 3rem;

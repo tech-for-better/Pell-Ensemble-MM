@@ -10,6 +10,20 @@ const NavStyles = styled.nav`
   top: 0;
   left: 0;
   width: 100%;
+  .logo-container {
+      width: 25%;
+      height: 90%;
+      display: flex;
+      align-items: center;
+  }
+  .logo {
+        font-size: 1.75rem;
+        align-self: center;
+        margin-left: 1.75rem;
+        padding: 3rem 0 0 0;
+        text-decoration: none;
+        font-family: "RobotoMono Bold";
+    }
   ul {
     max-width: 1200px;
     margin: 0 auto;
@@ -86,6 +100,9 @@ const NavStyles = styled.nav`
         display: block;
         margin-bottom: 1rem;
       }
+      .logo {
+          font-size: 1rem;
+      }
     }
   }
 `;
@@ -94,9 +111,11 @@ export default function NavBar() {
   const [showNav, setShowNav] = useState(false);
   return (
     <NavStyles>
-      <a target="_blank" rel="noreferrer" href="http://pellensemble.com">
+        <div className="logo-container">
+      <a className="logo" target="_blank" rel="noreferrer" href="http://pellensemble.com">
         Pell Ensemble
       </a>
+      </div>
       <div
         className="mobile-menu-icon"
         onClick={() => setShowNav(!showNav)}
