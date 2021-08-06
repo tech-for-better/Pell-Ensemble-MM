@@ -49,7 +49,7 @@ const NavStyles = styled.nav`
       text-decoration: none;
     }
     .active {
-      color: var(--white);
+      color: var(--purple);
     }
   }
   .mobile-menu-icon {
