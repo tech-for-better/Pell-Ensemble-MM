@@ -55,9 +55,8 @@ const CodeBlockDiv = styled.div`
   justify-content: center;
   align-items: center;
   p {
-    font-weight: bold;
     color: rgba(35, 0, 60, 1);
     padding-top: 1rem;
-    font-family: "Roboto Mono", monospace;
+    font-family: "RobotoMono Light", monospace;
   }
 `;

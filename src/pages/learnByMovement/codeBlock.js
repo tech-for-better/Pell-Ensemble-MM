@@ -259,7 +259,7 @@ export default function CodeBlock() {
             setStep(1);
           }}
         >
-          Start
+          start
         </ButtonDiv>
       </CamCanWrap>
     </Wrapper>
@@ -310,7 +310,7 @@ const ButtonDiv = styled.div`
   cursor: pointer;
   color: white;
   background-color: #4b0082;
-  font-family: "Gowun Batang", serif;
+  font-family: "Roboto Mono", serif;
   &:hover {
     background-color: #6f20aa;
   }

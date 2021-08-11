@@ -6,8 +6,8 @@ export default function StartInstructions({ step }) {
     case 0:
       return (
         <InstructionDiv>
-          <p>Let's create some blocks of code</p>
-          <p>Click on the Start button</p>
+          <p>Let's create some blocks of code...</p>
+          <p>Click on the start button</p>
           <p>and follow the instructions</p>
         </InstructionDiv>
       );
@@ -15,8 +15,8 @@ export default function StartInstructions({ step }) {
       return (
         <InstructionDiv>
           <p> Raise your hand and reach to the top corners</p>
-          <p> Keep your hands on the locks</p>
-          <p>if the border is green, you're striking the right pose!</p>
+          <p> Keep your hands on the balls until they're unlocked</p>
+          <p>if the border turns green, you're striking the right pose!</p>
         </InstructionDiv>
       );
     case 2:
@@ -51,7 +51,7 @@ const InstructionDiv = styled.div`
   background-color: #cad9de;
   p {
     padding: 1rem;
-    font-family: "Gowun Batang", serif;
+    font-family: "RobotoMono Light", serif;
     /* background: linear-gradient(
       90deg,
       rgba(5, 125, 34, 1) 5%,

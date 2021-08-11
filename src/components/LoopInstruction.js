@@ -6,8 +6,8 @@ export default function LoopInstruction({ step }) {
     case 0:
       return (
         <InstructionDiv>
-          <p>Let's create some blocks of code</p>
-          <p>Click on the Start button</p>
+          <p>Let's create some blocks of code...</p>
+          <p>Click on the start button</p>
           <p>and follow the instructions</p>
         </InstructionDiv>
       );
@@ -20,7 +20,7 @@ export default function LoopInstruction({ step }) {
     case 2:
       return (
         <InstructionDiv>
-          <p>AMAZING You have created some blocks of code</p>
+          <p>AMAZING! You have created some blocks of code</p>
         </InstructionDiv>
       );
 
@@ -43,7 +43,7 @@ const InstructionDiv = styled.div`
   background-color: #cad9de;
   p {
     padding: 1rem;
-    font-family: "Gowun Batang", serif;
+    font-family: "RobotoMono Light", serif;
     /* background: linear-gradient(
       90deg,
       rgba(5, 125, 34, 1) 5%,
