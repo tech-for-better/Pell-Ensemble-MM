@@ -13,8 +13,8 @@ export default function LoopCodes({ step }) {
       return (
         <CodeBlockDiv>
           <p>Score=0</p>
-          <p>While the score is less </p>
-          <p>Move hands to touch the red boxes</p>
+          <p>While the score is less than 30</p>
+          <p>Move your hands to play the drums!</p>
         </CodeBlockDiv>
       );
     case 2:
@@ -22,8 +22,8 @@ export default function LoopCodes({ step }) {
         <CodeBlockDiv>
           {" "}
           <p>Score=0</p>
-          <p>While the score is less </p>
-          <p>Move hands to touch the red boxes</p>
+          <p>While the score is less than 30</p>
+          <p>Move your hands to play the drums!</p>
         </CodeBlockDiv>
       );
 
@@ -46,9 +46,8 @@ const CodeBlockDiv = styled.div`
   justify-content: center;
   align-items: center;
   p {
-    font-weight: bold;
     color: rgba(35, 0, 60, 1);
     padding-top: 1rem;
-    font-family: "Roboto Mono", monospace;
+    font-family: "RobotoMono Light", monospace;
   }
 `;

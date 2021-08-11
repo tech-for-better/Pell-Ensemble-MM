@@ -3,6 +3,8 @@ import RobotoMonoRegular from '../assets/fonts/RobotoMono-Regular.ttf';
 import MontserratSemiBold from '../assets/fonts/Montserrat-SemiBold.ttf';
 import MontserratBold from '../assets/fonts/Montserrat-Bold.ttf';
 import RobotoMonoBold from '../assets/fonts/RobotoMono-Bold.ttf';
+import RecursiveMonoSpaceLight from '../assets/fonts/Recursive_Monospace-Light.ttf'
+import RobotoMonoLight from '../assets/fonts/RobotoMono-Light.ttf';
 
 const Typography = createGlobalStyle`
   @font-face {
@@ -24,6 +26,16 @@ const Typography = createGlobalStyle`
     font-family: 'RobotoMono Bold';
     src: url(${RobotoMonoBold});
     font-style: bold;
+  }
+  @font-face {
+    font-family: 'RecursiveMono Light';
+    src: url(${RecursiveMonoSpaceLight});
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'RobotoMono Light';
+    src: url(${RobotoMonoLight});
+    font-style: normal;
   }
   html{
     font-family: 'RobotoMono Regular';
