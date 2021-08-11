@@ -62,7 +62,7 @@ export default function LearnLoop() {
           wendiv.style.borderColor = "green";
           score++;
           document.getElementById("score").innerText = score;
-          if (score === 50) {
+          if (score === 30) {
             setStep(2);
             document.getElementById("fifty").style.display = "block";
             document.getElementById("score").style.display = "none";
