@@ -43,7 +43,7 @@ const InstructionDiv = styled.div`
   background-color: #cad9de;
   p {
     padding: 1rem;
-    font-family: "RobotoMono Light", serif;
+    font-family: "Gowun Batang", serif;
     /* background: linear-gradient(
       90deg,
       rgba(5, 125, 34, 1) 5%,
