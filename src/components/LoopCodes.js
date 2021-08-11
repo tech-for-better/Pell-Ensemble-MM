@@ -13,7 +13,7 @@ export default function LoopCodes({ step }) {
       return (
         <CodeBlockDiv>
           <p>Score=0</p>
-          <p>While the score is less than 50</p>
+          <p>While the score is less than 30</p>
           <p>Move your hands to play the drums!</p>
         </CodeBlockDiv>
       );
@@ -22,7 +22,7 @@ export default function LoopCodes({ step }) {
         <CodeBlockDiv>
           {" "}
           <p>Score=0</p>
-          <p>While the score is less than 50</p>
+          <p>While the score is less than 30</p>
           <p>Move your hands to play the drums!</p>
         </CodeBlockDiv>
       );
