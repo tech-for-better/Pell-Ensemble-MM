@@ -113,7 +113,7 @@ export default function LearnLoop() {
         <CountDiv>
           <p>score:</p>
           <span id="score">0</span>
-          <span id="fifty">50</span>
+          <span id="fifty">10</span>
         </CountDiv>
         <Webdiv id="webdiv">
           <div
