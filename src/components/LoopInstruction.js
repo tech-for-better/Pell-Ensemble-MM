@@ -14,7 +14,7 @@ export default function LoopInstruction({ step }) {
     case 1:
       return (
         <InstructionDiv>
-          <p>Touch the drum and hi-hat until you reach a score of 50</p>
+          <p>Touch the drum and hi-hat until you reach a score of 30</p>
         </InstructionDiv>
       );
     case 2:
