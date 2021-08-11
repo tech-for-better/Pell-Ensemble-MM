@@ -2,14 +2,9 @@ import React from "react";
 import NavBar from "./components/NavBar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import CodeBlock from "./pages/learnByMovement/codeBlock";
-import LearnSequences from "./pages/learnByMovement/learnSequences";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
-
 import LearnLoop from "./pages/learnByMovement/learnLoop";
-
-import Success from "./pages/Success";
-
 
 function App() {
   return (
@@ -19,9 +14,6 @@ function App() {
         <Route path="/codeBlock">
           <CodeBlock />
         </Route>
-        <Route path="/learnSequences">
-          <LearnSequences />
-        </Route>
         <Route path="/LearnLoop">
           <LearnLoop />
         </Route>
@@ -29,9 +21,7 @@ function App() {
           <Home />
         </Route>
       </Switch>
-      <Route path="/success">
-      <Success />
-      </Route>
+
       <Footer />
     </Router>
   );

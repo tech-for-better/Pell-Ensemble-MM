@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { MdClose, MdMenu } from "react-icons/md";
-import LearnLoop from "../pages/learnByMovement/learnLoop";
 
 const NavStyles = styled.nav`
   position: fixed;
@@ -164,17 +163,6 @@ export default function NavBar() {
             >
               CodeBlock
             </NavLink>
-          </li>
-          <li>
-            {/* <NavLink
-              to="/learnSequences"
-              onClick={() => setShowNav(!showNav)}
-              role="button"
-              onKeyDown={() => setShowNav(!showNav)}
-              tabIndex={0}
-            >
-              Learn Sequences
-            </NavLink> */}
           </li>
           <li>
             <NavLink
