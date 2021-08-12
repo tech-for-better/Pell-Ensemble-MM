@@ -7,6 +7,14 @@ FAC 21 Graduates/Tech for Better:
 - Michael Devlin
 - Maryam Ghorbani
 
+## Browser Compatibility
+
+Whilst the app does work across all browsers, there does appear to be some latency issues in some browsers, such as Chrome and Brave. We've found that by far the best browser to use the app in is Firefox. We therefore strongly suggest users access the app via Firefox.
+
+### Other Notes
+
+The PoseNet 'pose matching' algorithm generally works better when the user is standing rather than sat down. We recommend that, where possible, users who are able to stand should do so for the best results. 
+
 ## Features
 What can you do?
 - Activate webcam
